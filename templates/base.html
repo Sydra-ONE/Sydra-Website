@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sydra ONE - Site Vitrine{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href={{ url_for('static', filename='pictures/logo/logo_crop_sydra.png') }}>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.png') }}" alt="Logo Sydra ONE" class="logo">
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="/services">Services<span class="arrow"></span></a>
+                    <ul class="submenu"></ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/about">À propos<span class="arrow"></span></a>
+                    <ul class="submenu"></ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact">Contact<span class="arrow"></span></a>
+                    <ul class="submenu"></ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/blog">Blog<span class="arrow"></span></a>
+                    <ul class="submenu"></ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
