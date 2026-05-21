@@ -131,27 +131,46 @@ main {
 }
 
 .nav-item > a::after {
-    content: '▼';
-    position: absolute;
-    bottom: -13px;
-    left: 46%;
-    transform: translateX(-50%);
-    font-size: 0.6rem;
-    color: var(--primary-light);
+    display: none;
 }
 
 
-.arrow {
-    font-size: 0.7rem;
-    transition: transform 0.3s ease;
+/* 1. On crée la ligne droite de base */
+.notch-container {
+    border-bottom: 2px solid #000; 
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 8px;
+}
+
+/* 2. On crée la pointe en V */
+.notch-container::after {
+    content: '';
+    position: absolute;
+    /* On centre la flèche horizontalement */
+    left: 50%;
+    
+    /* On la fait descendre à cheval sur la bordure */
+    bottom: -11px; /* À ajuster selon la taille du carré (environ la moitié) */
+    
+    /* On centre parfaitement et on pivote de 45 degrés */
+    transform: translateX(-50%) rotate(45deg);
+    
+    /* La taille de la flèche */
+    width: 20px;
+    height: 20px;
+    
+    /* Le fond doit être de la même couleur que ta page pour masquer la ligne droite */
+    background-color: #ffffff; 
+    
+    /* On dessine le V avec les bordures bas et droite du carré pivoté */
+    border-bottom: 2px solid #000; 
+    border-right: 2px solid #000;
 }
 
 .nav-item:hover > a {
     color: var(--primary-light);
-}
-
-.nav-item:hover .arrow {
-    transform: translateY(2px);
 }
 
 .submenu {
@@ -586,19 +605,19 @@ section h2 {
     color: var(--primary-light);
     line-height: 1.9;
     margin-bottom: 2rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .quote-author h4 {
-    color: var(--accent);
+    color: var(--primary-light);
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
     font-weight: 600;
 }
 
 .quote-author p {
-    color: var(--medium-text);
-    font-size: 0.9rem;
+    color: var(--surface);
+    font-size: 0.8rem;
     margin-bottom: 1rem;
     font-style: italic;
 }
