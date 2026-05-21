@@ -3,21 +3,21 @@
 {% block title %}Sydra ONE - Contact{% endblock %}
 
 {% block content %}
-<section class="contact">
+<section class="contact-hero">
     <div class="container">
         <h1>Nous contacter</h1>
-        
-        <div class="contact-content">
-            <h2>Prenez contact avec notre équipe</h2>
-            <p>Nous serions ravis de discuter de votre projet</p>
-            
-            <form class="contact-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <textarea placeholder="Votre message" rows="5" required></textarea>
-                <button type="submit" class="btn">Envoyer</button>
-            </form>
-        </div>
+        <p>Un projet, une question, un devis ? Nous vous répondons sous 24h.</p>
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <div class="container">
+        <form class="contact-form">
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre email" required>
+            <textarea placeholder="Décrivez votre projet, votre besoin ..." rows="5" required></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
     </div>
 </section>
 {% endblock %}
