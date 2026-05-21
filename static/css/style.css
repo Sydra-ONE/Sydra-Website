@@ -38,7 +38,7 @@ body {
     background: #ffffff;
     backdrop-filter: blur(10px);
     color: white;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -50,6 +50,18 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 3rem;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: 0.7rem;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
 }
 
 .logo {
@@ -86,6 +98,7 @@ body {
     gap: 0.5rem;
     position: relative;
     padding-bottom: 0.4rem;
+    margin-top: -0.9rem;
 }
 
 .nav-item::before {
@@ -109,10 +122,6 @@ body {
     color: var(--primary-light);
 }
 
-.nav-item::after {
-    display: none;
-    
-}
 
 .arrow {
     font-size: 0.7rem;
@@ -129,20 +138,53 @@ body {
 
 .submenu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 1rem);
     left: 0;
     background: var(--primary-light);
-    border: 1px solid #00d9ff33;
+    border: 1px solid rgba(0, 217, 255, 0.2);
     border-radius: 6px;
     list-style: none;
-    min-width: 200px;
+    min-width: 220px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    margin-top: 0.5rem;
-    padding: 0.5rem 0;
-    z-index: 101;
+    padding: 0.8rem 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li {
+    list-style: none;
+    padding: 0;
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    font-weight: 500;
+}
+
+.submenu li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: var(--accent);
+    color: var(--accent);
+}
+
+.submenu-label {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: default;
 }
 
 .nav-item:hover .submenu {
@@ -354,8 +396,8 @@ footer {
     background: rgba(1, 15, 35, 0.95);
     color: var(--medium-text);
     text-align: center;
-    padding: 2.5rem 0;
-    margin-top: 5rem;
+    padding: 0.5rem 0;
+    margin-top: 1.5rem;
     border-top: 1px solid rgba(0, 217, 255, 0.1);
     font-size: 0.9rem;
 }
