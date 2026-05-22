@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
     <link rel="icon" type="image/png" href={{ url_for('static', filename='pictures/logo/logo_crop_sydra.png') }}>
 </head>
 <body>
@@ -14,7 +15,7 @@
             <a href="/" class="logo-link"><img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.png') }}" alt="Logo Sydra ONE" class="logo"></a>
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="#services">Services<span class="notch-container"></span></a>
+                    <a href="#services">Services<span class="notch-container"><span class="notch-v"></span></span></a>
                     <ul class="submenu">
                         <li><a href="/services/web">Développement Web</a></li>
                         <li><a href="/services/expertise">Expertise</a></li>
@@ -23,22 +24,22 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#about">À propos<span class="notch-container position-relative pb-4"></span></a>
+                    <a href="#about">À propos<span class="notch-container position-relative pb-4"><span class="notch-v"></span></span></a>
                     <ul class="submenu">
                         <li><span class="submenu-label">Qui sommes nous ?</span></li>
                         <li><a href="/about">À propos</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#blog">Nos réalisations<span class="notch-container"></span></a>
+                    <a href="#blog">Nos réalisations<span class="notch-container"><span class="notch-v"></span></span></a>
                     <ul class="submenu"></ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#blog">Portfolio<span class="notch-container"></span></a>
+                    <a href="#blog">Portfolio<span class="notch-container"><span class="notch-v"></span></span></a>
                     <ul class="submenu"></ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#blog">Tarifications<span class="notch-container"></span></a>
+                    <a href="#blog">Tarifications<span class="notch-container"><span class="notch-v"></span></span></a>
                     <ul class="submenu"></ul>
                 </li>
                 <li class="nav-item nav-item-simple">

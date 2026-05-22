@@ -13,6 +13,11 @@ def services():
     """Page services"""
     return render_template('services.html')
 
+@app.route('/services/web')
+def services_web():
+    """Page service web"""
+    return render_template('services_web.html')
+
 @app.route('/about')
 def about():
     """Page À propos"""

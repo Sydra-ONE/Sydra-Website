@@ -101,7 +101,7 @@ main {
     color: #000000;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -112,14 +112,7 @@ main {
 }
 
 .nav-item::before {
-    content: '';
-    position: absolute;
-    bottom: -1.5px;
-    left: 46%;
-    transform: translateX(-50%);
-    width: 85%;
-    height: 3px;
-    background: var(--primary-light);
+    display: none;
 }
 
 .nav-item-simple::before {
@@ -135,41 +128,83 @@ main {
 }
 
 
-/* 1. On crée la ligne droite de base */
+/* 1. Ligne + V centre (style "notch") */
 .notch-container {
-    border-bottom: 2px solid #000; 
-    position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 8px;
+    --notch-gap: 10px;
+    --notch-v-size: 8px;
+    --notch-stroke: 1px;
+    --notch-line-y: 2px;
+    --notch-join: 0px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    display: block;
+    width: 100%;
+    height: calc(var(--notch-line-y) + var(--notch-v-size) + var(--notch-stroke) + 4px);
+    pointer-events: auto;
+    color: var(--dark-bg);
+    transition: color 0.3s ease;
 }
 
-/* 2. On crée la pointe en V */
+/* 2. Les deux segments horizontaux */
+.notch-container::before,
 .notch-container::after {
     content: '';
     position: absolute;
-    /* On centre la flèche horizontalement */
+    top: var(--notch-line-y);
+    height: var(--notch-stroke);
+    background: currentColor;
+    border-radius: 999px;
+}
+
+.notch-container::before {
+    left: 0;
+    width: calc(50% - (var(--notch-gap) / 2) + var(--notch-join));
+}
+
+.notch-container::after {
+    right: 0;
+    width: calc(50% - (var(--notch-gap) / 2) + var(--notch-join));
+}
+
+/* 3. Les deux segments diagonaux du V */
+.notch-v {
+    position: absolute;
     left: 50%;
-    
-    /* On la fait descendre à cheval sur la bordure */
-    bottom: -11px; /* À ajuster selon la taille du carré (environ la moitié) */
-    
-    /* On centre parfaitement et on pivote de 45 degrés */
-    transform: translateX(-50%) rotate(45deg);
-    
-    /* La taille de la flèche */
-    width: 20px;
-    height: 20px;
-    
-    /* Le fond doit être de la même couleur que ta page pour masquer la ligne droite */
-    background-color: #ffffff; 
-    
-    /* On dessine le V avec les bordures bas et droite du carré pivoté */
-    border-bottom: 2px solid #000; 
-    border-right: 2px solid #000;
+    top: var(--notch-line-y);
+    width: 0;
+    height: 0;
+}
+
+.notch-v::before,
+.notch-v::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: var(--notch-v-size);
+    height: var(--notch-stroke);
+    background: currentColor;
+    border-radius: 999px;
+}
+
+.notch-v::before {
+    left: calc(-1 * (var(--notch-gap) / 2) - var(--notch-join));
+    transform: rotate(45deg);
+    transform-origin: left top;
+}
+
+.notch-v::after {
+    right: calc(-1 * (var(--notch-gap) / 2) - var(--notch-join));
+    transform: rotate(-45deg);
+    transform-origin: right top;
 }
 
 .nav-item:hover > a {
+    color: var(--primary-light);
+}
+
+.nav-item:hover .notch-container {
     color: var(--primary-light);
 }
 
@@ -177,18 +212,19 @@ main {
     position: absolute;
     top: calc(100% + 1rem);
     left: 0;
-    background: var(--primary-light);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 6px;
+    background: linear-gradient(160deg, rgba(10, 24, 45, 0.98), rgba(8, 20, 38, 0.96));
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 12px;
     list-style: none;
-    min-width: 220px;
+    min-width: 240px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateY(6px);
     transition: all 0.3s ease;
-    padding: 0.8rem 0;
+    padding: 0.5rem;
     z-index: 1000;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 18px 40px rgba(2, 8, 20, 0.45);
+    backdrop-filter: blur(10px);
 }
 
 .submenu li {
@@ -198,26 +234,27 @@ main {
 
 .submenu li a {
     display: block;
-    padding: 0.8rem 1.2rem;
-    color: #ffffff;
+    padding: 0.8rem 1rem;
+    color: rgba(234, 242, 255, 0.9);
     text-decoration: none;
     transition: all 0.2s ease;
-    font-size: 0.9rem;
-    border-left: 3px solid transparent;
-    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border-left: 2px solid transparent;
+    font-weight: 600;
 }
 
 .submenu li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(120deg, rgba(34, 211, 238, 0.2), rgba(59, 130, 246, 0.18));
     border-left-color: var(--accent);
-    color: var(--accent);
+    color: #FFFFFF;
 }
 
 .submenu-label {
     display: block;
-    padding: 0.8rem 1.2rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    color: rgba(234, 242, 255, 0.55);
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -232,7 +269,7 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-white) 0%, #0F2957 50%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #0F2957 50%, var(--primary-light) 100%);
     color: white;
     padding: 7rem 0;
     text-align: center;
@@ -356,6 +393,7 @@ section h2 {
     background: var(--surface);
     border-color: rgba(0, 217, 255, 0.3);
     transform: translateY(-4px);
+    box-shadow: 0 10px 40px var(--accent);
 }
 
 .feature h3 {
@@ -408,7 +446,7 @@ section h2 {
 
 /* Contact Section */
 .contact-hero {
-    background: linear-gradient(135deg, var(--primary-white) 0%, #0F2957 50%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #0F2957 50%, var(--primary-light) 100%);
     color: white;
     padding: 7rem 0;
     text-align: center;
