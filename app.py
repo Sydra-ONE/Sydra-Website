@@ -28,11 +28,6 @@ def services_IA():
     """Page service Data and IA engineering"""
     return render_template('services_IA.html')
 
-@app.route('/services/maintenance')
-def services_maintenance():
-    """Page service maintenance"""
-    return render_template('services_maintenance.html')
-
 @app.route('/about')
 def about():
     """Page À propos"""
