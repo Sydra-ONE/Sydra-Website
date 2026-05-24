@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block title %}Sydra ONE - IA & Data{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services_web.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="web-service">
+
+    <section class="web-hero">
+
+        <div class="container web-hero-grid">
+
+            <div class="web-hero-copy">
+
+                <span class="eyebrow">Services · IA & Data</span>
+
+                <h1>
+                    Des solutions intelligentes basées sur l'IA
+                    et la data pour accélérer votre business.
+                </h1>
+
+                <p>
+                    Sydra ONE développe des solutions IA modernes :
+                    chatbots intelligents, automatisation, analyse de données
+                    et systèmes intelligents adaptés à vos besoins.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a class="btn" href="/contact">
+                        Demarrer un projet IA
+                    </a>
+
+                    <a class="btn btn-ghost" href="/contact">
+                        Parler à un expert IA
+                    </a>
+
+                </div>
+
+                <div class="hero-highlights">
+
+                    <div class="highlight">
+                        <span class="label">Automatisation</span>
+                        <span class="value">IA intelligente</span>
+                    </div>
+
+                    <div class="highlight">
+                        <span class="label">Analyse</span>
+                        <span class="value">Valorisation des données</span>
+                    </div>
+
+                    <div class="highlight">
+                        <span class="label">Innovation</span>
+                        <span class="value">Solutions modernes et évolutives</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="web-hero-card">
+
+                <div class="card-top">
+
+                    <span class="pill">Intelligence artificielle</span>
+
+                    <h3>
+                        Automatisez et optimisez vos processus grâce a l'IA
+                    </h3>
+
+                    <p>
+                        De l'assistant intelligent aux systèmes de recommandations,
+                        nous créons des solutions IA adaptées aux besoins réels des entreprises.
+                    </p>
+
+                </div>
+
+                <div class="gain-list">
+
+                    <div class="gain-item">
+                        <span class="gain-title">Chatbots IA</span>
+                        <span class="gain-desc">
+                            Support automatisé et intelligent
+                        </span>
+                    </div>
+
+                    <div class="gain-item">
+                        <span class="gain-title">Data Engineering</span>
+                        <span class="gain-desc">
+                            Gestion et traitement des données
+                        </span>
+                    </div>
+
+                    <div class="gain-item">
+                        <span class="gain-title">Machine Learning</span>
+                        <span class="gain-desc">
+                            Modéles intelligents et prédiction
+                        </span>
+                    </div>
+
+                    <div class="gain-item">
+                        <span class="gain-title">Automatisation</span>
+                        <span class="gain-desc">
+                            Optimisation des processus métiers
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="web-tabs">
+
+        <div class="container">
+
+            <div class="tabs">
+
+                <input type="radio" name="services-tabs" id="tab-platform" checked>
+                <input type="radio" name="services-tabs" id="tab-process">
+                <input type="radio" name="services-tabs" id="tab-commerce">
+
+                <div class="tab-controls">
+
+                    <label for="tab-platform">
+                        Solutions IA
+                    </label>
+
+                    <label for="tab-process">
+                        Data Engineering
+                    </label>
+
+                    <label for="tab-commerce">
+                        Automatisation intelligente
+                    </label>
+
+                </div>
+
+                <div class="tab-panels">
+
+                    <!-- IA -->
+                    <div class="tab-panel panel-platform">
+
+                        <div class="panel-header">
+
+                            <h2>
+                                Des solutions IA modernes et performantes
+                            </h2>
+
+                            <p>
+                                Nous intégrons l'intelligence artificielle
+                                dans vos outils et processus metiers.
+                            </p>
+
+                        </div>
+
+                        <div class="panel-grid">
+
+                            <div class="panel-block">
+
+                                <h3>Solutions proposées</h3>
+
+                                <div class="card-grid">
+
+                                    <div class="info-card">
+                                        <h4>Chatbots IA</h4>
+                                        <p>
+                                            Assistants intelligents pour support client et automatisation.
+                                        </p>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <h4>Systèmes de recommandation</h4>
+                                        <p>
+                                            Personnalisation et recommandations intelligentes.
+                                        </p>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <h4>Analyse prédictive</h4>
+                                        <p>
+                                            Exploitation avancée des données.
+                                        </p>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <h4>Solutions sur mesure</h4>
+                                        <p>
+                                            IA adaptée aux besoins de votre entreprise.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="panel-block">
+
+                                <h3>Technologies IA</h3>
+
+                                <ul class="checklist">
+                                    <li>Python & Flask</li>
+                                    <li>Machine Learning</li>
+                                    <li>TensorFlow & Scikit-Learn</li>
+                                    <li>APIs IA & automatisation</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- DATA -->
+                    <div class="tab-panel panel-process">
+
+                        <div class="panel-header">
+
+                            <h2>
+                                Data Engineering & pipelines
+                            </h2>
+
+                            <p>
+                                Structurez et exploitez efficacement vos données.
+                            </p>
+
+                        </div>
+
+                        <div class="panel-grid">
+
+                            <div class="panel-block">
+
+                                <h3>Gestion des données</h3>
+
+                                <ul class="checklist">
+                                    <li>Pipelines ETL</li>
+                                    <li>Traitement des données</li>
+                                    <li>Nettoyage et transformation</li>
+                                    <li>Centralisation des informations</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="panel-block accent-block">
+
+                                <h3>Bénéfices</h3>
+
+                                <ul class="checklist">
+                                    <li>Données exploitables et fiables</li>
+                                    <li>Automatisation analytique</li>
+                                    <li>Gain de productivité</li>
+                                    <li>Meilleure prise de décision</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- AUTOMATION -->
+                    <div class="tab-panel panel-commerce">
+
+                        <div class="panel-header">
+
+                            <h2>
+                                Automatisation intelligente
+                            </h2>
+
+                            <p>
+                                Automatisez vos processus métiers avec des outils intelligents.
+                            </p>
+
+                        </div>
+
+                        <div class="panel-grid">
+
+                            <div class="panel-block">
+
+                                <h3>Automatisation IA</h3>
+
+                                <ul class="checklist">
+                                    <li>Automatisation de workflows</li>
+                                    <li>Traitement intelligent des données</li>
+                                    <li>Optimisation des opérations</li>
+                                    <li>Assistants intelligents internes</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="panel-block">
+
+                                <h3>Cas d usages</h3>
+
+                                <ul class="checklist">
+                                    <li>Support client automatisé</li>
+                                    <li>Analyse de données business</li>
+                                    <li>Gestion documentaire intelligente</li>
+                                    <li>Automatisation répétitive</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+{% endblock %}
