@@ -18,6 +18,21 @@ def services_web():
     """Page service web"""
     return render_template('services_web.html')
 
+@app.route('/services/Cloud_et_DevOps')
+def services_cloud():
+    """Page service cloud et devops"""
+    return render_template('services_cloud.html')
+
+@app.route('/services/Data_IA')
+def services_IA():
+    """Page service Data and IA engineering"""
+    return render_template('services_IA.html')
+
+@app.route('/services/maintenance')
+def services_maintenance():
+    """Page service maintenance"""
+    return render_template('services_maintenance.html')
+
 @app.route('/about')
 def about():
     """Page À propos"""
