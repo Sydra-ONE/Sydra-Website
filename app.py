@@ -13,10 +13,30 @@ def services():
     """Page services"""
     return render_template('services.html')
 
+@app.route('/services/web')
+def services_web():
+    """Page service web"""
+    return render_template('services_web.html')
+
+@app.route('/services/Cloud_et_DevOps')
+def services_cloud():
+    """Page service cloud et devops"""
+    return render_template('services_cloud.html')
+
+@app.route('/services/Data_IA')
+def services_IA():
+    """Page service Data and IA engineering"""
+    return render_template('services_IA.html')
+
 @app.route('/about')
 def about():
     """Page À propos"""
     return render_template('about.html')
+
+@app.route('/why_us')
+def why_us():
+    """Page Pourquoi nous choisir ?"""
+    return render_template('pourquoi_nous.html')
 
 @app.route('/contact')
 def contact():

@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Sydra ONE - Plateformes Web{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services_web.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="web-service">
+    <section class="web-hero">
+        <div class="container web-hero-grid">
+            <div class="web-hero-copy">
+                <span class="eyebrow">Services · Dev Web</span>
+                <h1>Des plateformes web haut de gamme pour accélérer votre croissance.</h1>
+                <p>
+                    Sydra ONE transforme vos idées en sites web professionnels et plateformes SaaS/PaaS.
+                    Nous livrons un produit clair, rapide et évolutif, avec un accompagnement complet.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn" href="/contact">Parler à un expert</a>
+                    <a class="btn btn-ghost" href="/contact">Demander un audit rapide</a>
+                </div>
+                <div class="hero-highlights">
+                    <div class="highlight">
+                        <span class="label">Delais</span>
+                        <span class="value">1 semaine à 2 mois</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="label">Accompagnement</span>
+                        <span class="value">De l'idee au deploiement</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="label">Transparence</span>
+                        <span class="value">Coûts clairs et detaillés</span>
+                    </div>
+                </div>
+            </div>
+            <div class="web-hero-card">
+                <div class="card-top">
+                    <span class="pill">Impact business</span>
+                    <h3>Des gains rapides et mesurables</h3>
+                    <p>
+                        Ameliorez votre présence digitale, augmentez le chiffre d'affaires et modernisez vos outils.
+                        Nos plateformes sont conçues pour convertir et automatiser vos processus.
+                    </p>
+                </div>
+                <div class="gain-list">
+                    <div class="gain-item">
+                        <span class="gain-title">Chiffre d'affaires</span>
+                        <span class="gain-desc">Plus de leads et de conversions</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Image de marque</span>
+                        <span class="gain-desc">Présence digitale premium</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Modernisation</span>
+                        <span class="gain-desc">Outils efficaces et évolutifs</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Accompagnement</span>
+                        <span class="gain-desc">Suivi clair et continu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="web-tabs">
+        <div class="container">
+            <div class="tabs">
+                <input type="radio" name="services-tabs" id="tab-platform" checked>
+                <input type="radio" name="services-tabs" id="tab-process">
+                <input type="radio" name="services-tabs" id="tab-commerce">
+
+                <div class="tab-controls">
+                    <label for="tab-platform">Création de site et plateforme SaaS/PaaS</label>
+                    <label for="tab-process">Processus métiers digitalisés</label>
+                    <label for="tab-commerce">E-commerce</label>
+                </div>
+
+                <div class="tab-panels">
+                    <div class="tab-panel panel-platform">
+                        <div class="panel-header">
+                            <h2>Un produit web concu pour performer et accélerer vos idées</h2>
+                            <p> 
+                                Vous avez une idee, un besoin métier clair ou un projet SaaS.
+                                Nous construisons une plateforme stable, securisée et facile à faire évoluer.
+                            </p>
+                        </div>
+
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <h3>Ce que nous construisons</h3>
+                                <div class="card-grid">
+                                    <div class="info-card">
+                                        <h4>Site web premium</h4>
+                                        <p>Image de marque forte, experience utilisateur soignée, performance.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Plateforme SaaS</h4>
+                                        <p>Produits B2B ou B2C, abonnement, gestion utilisateurs et droits.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Portail client</h4>
+                                        <p>Suivi, accès a l'information, workflows fluides et securisés.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>MVP rapide</h4>
+                                        <p>Version prête pour le marché, tests et évolutions rapides.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-block">
+                                <h3>Expertise technique claire</h3>
+                                <ul class="checklist">
+                                    <li>Front moderne, accessible et rapide</li>
+                                    <li>Back robuste, données centralisées, API solides</li>
+                                    <li>Integrations CRM, emailing, ERP</li>
+                                    <li>hebergement, monitoring, sauvegardes</li>
+                                </ul>
+                                <div class="deliverable">
+                                    <span class="pill">Livrables</span>
+                                    <p>Design, developpement, déploiement, documentation et maintenance.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-row panel-row-center">
+                            <div class="panel-block panel-block-center">
+                                <h3>Méthode simple et transparente</h3>
+                                <ol class="steps">
+                                    <li>Audit et cadrage du besoin</li>
+                                    <li>Prototype rapide et alignement design</li>
+                                    <li>Développement et tests qualité</li>
+                                    <li>Mise en production et suivi</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="panel-cta">
+                            <div>
+                                <h3>Vous voulez un site ou une plateforme qui performe ?</h3>
+                                <p>Recevez une estimation rapide et une recommandation claire.</p>
+                            </div>
+                            <a class="btn" href="/contact">Parlons de votre projet</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel panel-process">
+                        <div class="panel-placeholder">
+                            <h2>Processus metiers digitalises</h2>
+                            <p>Cette offre arrive bientot. Dites-nous vos besoins pour passer en priorite.</p>
+                            <a class="btn btn-ghost" href="/contact">Nous contacter</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel panel-commerce">
+                        <div class="panel-placeholder">
+                            <h2>Creation de site e-commerce</h2>
+                            <p>Offre en preparation. Demandez un devis pour une boutique efficace et scalable.</p>
+                            <a class="btn btn-ghost" href="/contact">Demander un devis</a>
+                        </div>
+                    </div>
+                    <!-- parler uniquement de la maintenance uniquement sur nos produits et pas d'application eterne à Sydra One -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
