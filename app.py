@@ -33,6 +33,11 @@ def about():
     """Page À propos"""
     return render_template('about.html')
 
+@app.route('/why_us')
+def why_us():
+    """Page Pourquoi nous choisir ?"""
+    return render_template('pourquoi_nous.html')
+
 @app.route('/contact')
 def contact():
     """Page contact"""
