@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% block title %}Sydra ONE - Cloud & DevOps{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO (aligné project-content style pour cohérence visuelle) -->
+<section class="project-content active">
+
+  <div class="project-image">
+    <img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}"
+         alt="Dashboard Cloud Monitoring">
+  </div>
+
+  <div class="project-info">
+
+    <h2>Comment nous avons créé une infrastructure Cloud de monitoring</h2>
+
+    <p>
+      Ce projet consiste à construire un système complet qui permet de surveiller
+      en temps réel un serveur informatique dans le cloud.
+      L’objectif est de voir à tout moment si un serveur fonctionne correctement,
+      et d’anticiper les problèmes avant qu’ils ne surviennent.
+    </p>
+
+    <div class="project-stack">
+      <span>AWS EC2</span>
+      <span>Docker</span>
+      <span>Grafana</span>
+      <span>Prometheus</span>
+    </div>
+
+    <a href="#screenshots" class="project-btn">Voir le fonctionnement</a>
+
+  </div>
+
+</section>
+
+<!-- OBJECTIFS -->
+<section class="portfolio-section">
+
+  <div class="portfolio-header">
+    <h1>Comprendre l’objectif du projet</h1>
+    <p>Pourquoi ce système de monitoring cloud a été créé</p>
+  </div>
+
+  <div class="project-content active">
+
+    <div class="project-info">
+
+      <h2>À quoi sert ce projet ?</h2>
+
+      <p>
+        Dans un environnement cloud, un serveur doit être surveillé en permanence.
+        Sans monitoring, on ne sait pas s’il ralentit, s’il manque de mémoire ou s’il tombe en panne.
+      </p>
+
+      <p>
+        Ce projet permet donc de créer un système qui observe automatiquement le serveur
+        et affiche toutes ses informations importantes sur un tableau de bord visuel.
+      </p>
+
+      <div class="project-stack">
+        <span>Surveillance en temps réel</span>
+        <span>Prévention des pannes</span>
+        <span>Visualisation des données</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TECHNOLOGIES -->
+<section class="portfolio-section">
+
+  <div class="portfolio-header">
+    <h1>Les outils utilisés</h1>
+    <p>Chaque technologie joue un rôle précis dans le système</p>
+  </div>
+
+  <div class="project-content active">
+
+    <div class="project-info">
+
+      <h2>Comment le système est construit</h2>
+
+      <p>
+        Le projet repose sur plusieurs outils qui travaillent ensemble :
+      </p>
+
+      <p>
+        - AWS EC2 héberge le serveur dans le cloud<br>
+        - Docker permet de lancer les services facilement<br>
+        - Prometheus collecte les données du serveur<br>
+        - Grafana affiche les graphiques de monitoring
+      </p>
+
+      <div class="project-stack">
+        <span>Cloud AWS</span>
+        <span>Conteneurs Docker</span>
+        <span>Collecte de métriques</span>
+        <span>Dashboards</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCREENSHOTS -->
+<section id="screenshots" class="portfolio-section">
+
+  <div class="portfolio-header">
+    <h1>Le fonctionnement en images</h1>
+    <p>
+      Voici les différentes étapes de mise en place de l’infrastructure Cloud,
+      depuis la création du serveur jusqu’à la visualisation des métriques.
+    </p>
+  </div>
+
+  <!-- 1. INITIALISATION EC2 -->
+  <div class="project-content active">
+
+    <div class="project-image">
+      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/instance_EC2.png') }}"
+           alt="Instance EC2 AWS">
+    </div>
+
+    <div class="project-info">
+
+      <h2>1. Création de l’instance AWS EC2</h2>
+
+      <p>
+        La première étape consiste à créer un serveur virtuel sur AWS (EC2).
+        C’est sur cette machine que tout le système de monitoring sera installé.
+      </p>
+
+      <p>
+        On choisit un système Linux, on configure les accès réseau,
+        puis on démarre l’instance pour obtenir un serveur accessible à distance.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 2. DOCKER -->
+  <div class="project-content active">
+
+    <div class="project-image">
+      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/docker.png') }}"
+           alt="Docker containers">
+    </div>
+
+    <div class="project-info">
+
+      <h2>2. Déploiement des services avec Docker</h2>
+
+      <p>
+        Une fois le serveur prêt, les outils de monitoring sont installés via Docker.
+        Cela permet de lancer facilement plusieurs services isolés.
+      </p>
+
+      <p>
+        Chaque composant (Grafana, Prometheus, Node Exporter) fonctionne dans un conteneur.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 3. PROMETHEUS -->
+  <div class="project-content active">
+
+    <div class="project-image">
+      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/prometheus.png') }}"
+           alt="Prometheus monitoring">
+    </div>
+
+    <div class="project-info">
+
+      <h2>3. Collecte des métriques avec Prometheus</h2>
+
+      <p>
+        Prometheus récupère en continu les données du serveur :
+        utilisation CPU, mémoire, disque et réseau.
+      </p>
+
+      <p>
+        Ces données sont stockées pour être analysées et affichées ensuite.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 4. DASHBOARD CPU -->
+  <div class="project-content active">
+
+    <div class="project-image">
+      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/basic_CPU.png') }}"
+           alt="CPU monitoring Grafana">
+    </div>
+
+    <div class="project-info">
+
+      <h2>4. Visualisation des performances</h2>
+
+      <p>
+        Grafana transforme les données en graphiques lisibles.
+        On peut voir en temps réel l’état du serveur.
+      </p>
+
+      <p>
+        Cela permet de détecter immédiatement les pics de charge ou anomalies.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 5. DASHBOARD FINAL -->
+  <div class="project-content active">
+
+    <div class="project-image">
+      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}"
+           alt="Dashboard global">
+    </div>
+
+    <div class="project-info">
+
+      <h2>5. Supervision complète du système</h2>
+
+      <p>
+        Le dashboard final regroupe toutes les métriques du serveur en un seul endroit.
+        Cela donne une vision globale de l’infrastructure.
+      </p>
+
+      <p>
+        L’objectif est d’avoir une surveillance continue et centralisée du système Cloud.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- RESULTATS -->
+<section class="portfolio-section">
+
+  <div class="portfolio-header">
+    <h1>Ce que ce projet permet de réaliser</h1>
+  </div>
+
+  <div class="project-content active">
+
+    <div class="project-info">
+
+      <h2>Résultat final</h2>
+
+      <p>
+        À la fin du projet, nous obtenons une plateforme complète
+        capable de surveiller un serveur cloud en continu.
+      </p>
+
+      <p>
+        Cela permet :<br>
+        - d’éviter les pannes<br>
+        - de surveiller les performances<br>
+        - d’améliorer la stabilité d’un système cloud
+      </p>
+
+      <div class="project-stack">
+        <span>Système fiable</span>
+        <span>Surveillance continue</span>
+        <span>Réduction des pannes</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

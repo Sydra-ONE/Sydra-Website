@@ -132,6 +132,7 @@ main {
 }
 
 
+
 /* 1. Ligne + V centre (style "notch") */
 .notch-container {
     --notch-gap: 10px;
@@ -785,6 +786,8 @@ footer {
     max-width: 1200px;
     padding: 0 20px;
 }
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {

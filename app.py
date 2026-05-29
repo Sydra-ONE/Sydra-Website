@@ -38,6 +38,26 @@ def why_us():
     """Page Pourquoi nous choisir ?"""
     return render_template('pourquoi_nous.html')
 
+@app.route('/portfolio')
+def portfolio():
+    """Page portfolio"""
+    return render_template('portfolio.html')
+
+@app.route('/portfolio/web')
+def portfolio_web():
+    """Page portfolio web"""
+    return render_template('portfolio_web.html')
+
+@app.route('/portfolio/Cloud_et_DevOps')
+def portfolio_cloud():
+    """Page portfolio cloud et devops"""
+    return render_template('portfolio_cloud.html')
+
+@app.route('/portfolio/Data_IA')
+def portfolio_IA():
+    """Page portfolio Data and IA engineering"""
+    return render_template('portfolio_IA.html')
+
 @app.route('/contact')
 def contact():
     """Page contact"""
