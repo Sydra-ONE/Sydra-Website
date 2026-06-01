@@ -7,113 +7,113 @@
 {% endblock %}
 
 {% block content %}
-<section class="portfolio-section">
+<div class="portfolio-page">
+	<section class="portfolio-section">
+        <div class="container">
+  			<div class="section-header">
+				<h1>Nos Projets</h1>
+				<p>
+				Découvrez quelques réalisations SydraOne en développement web,
+				cloud et DevOps.
+				</p>
+  			</div>
 
-  <div class="portfolio-header">
-    <h1>Nos Projets</h1>
-    <p>
-      Découvrez quelques réalisations SydraOne en développement web,
-      cloud et DevOps.
-    </p>
-  </div>
+			<!-- BULLES -->
+			<div class="project-tabs">
+				<button class="tab-btn active" onclick="showProject('project1', event)">
+				Site Web Premium
+				</button>
 
-  <!-- BULLES -->
-  <div class="project-tabs">
-    <button class="tab-btn active" onclick="showProject('project1', event)">
-    Site Web Premium
-    </button>
+				<button class="tab-btn" onclick="showProject('project2', event)">
+				Monitoring DevOps
+				</button>
 
-    <button class="tab-btn" onclick="showProject('project2', event)">
-    Monitoring DevOps
-    </button>
+				<button class="tab-btn" onclick="showProject('project3', event)">
+				Automatisation IA
+				</button>
+  			</div>
 
-    <button class="tab-btn" onclick="showProject('project3', event)">
-    Automatisation IA
-    </button>
-  </div>
+			<!-- CONTENU PROJET 1 -->
+			<div id="project1" class="project-content active">
 
-  <!-- CONTENU PROJET 1 -->
-  <div id="project1" class="project-content active">
+				<div class="project-image">
+					<img src="images/project-web.jpg" alt="Projet Web">
+				</div>
 
-    <div class="project-image">
-      <img src="images/project-web.jpg" alt="Projet Web">
-    </div>
+				<div class="project-info">
+					<h2>Création d’un Site Web Premium</h2>
 
-    <div class="project-info">
-      <h2>Création d’un Site Web Premium</h2>
+					<p>
+						Développement d’un site vitrine moderne et responsive destiné à une PME
+						souhaitant améliorer sa présence digitale et son image professionnelle.
+					</p>
 
-      <p>
-        Développement d’un site vitrine moderne et responsive destiné à une PME
-        souhaitant améliorer sa présence digitale et son image professionnelle.
-      </p>
+					<div class="project-stack">
+						<span>React</span>
+						<span>Node.js</span>
+						<span>SEO</span>
+						<span>Responsive</span>
+					</div>
 
-      <div class="project-stack">
-        <span>React</span>
-        <span>Node.js</span>
-        <span>SEO</span>
-        <span>Responsive</span>
-      </div>
+      				<a href="/portfolio_web" class="project-btn">Voir le projet</a>
+    			</div>
+  			</div>
 
-      <a href="/portfolio_web" class="project-btn">Voir le projet</a>
-    </div>
+			<!-- CONTENU PROJET 2 -->
+			<div id="project2" class="project-content">
 
-  </div>
+				<div class="project-image">
+					<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}" alt="Projet DevOps">
+				</div>
 
-  <!-- CONTENU PROJET 2 -->
-  <div id="project2" class="project-content">
+    			<div class="project-info">
+					<h2>Infrastructure Monitoring DevOps</h2>
 
-    <div class="project-image">
-      <img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}" alt="Projet DevOps">
-    </div>
+					<p>
+						Mise en place d’une infrastructure cloud de monitoring temps réel
+						avec Grafana, Prometheus et Docker sur AWS EC2.
+					</p>
 
-    <div class="project-info">
-      <h2>Infrastructure Monitoring DevOps</h2>
+					<div class="project-stack">
+						<span>AWS</span>
+						<span>Docker</span>
+						<span>Grafana</span>
+						<span>Prometheus</span>
+					</div>
 
-      <p>
-        Mise en place d’une infrastructure cloud de monitoring temps réel
-        avec Grafana, Prometheus et Docker sur AWS EC2.
-      </p>
+      				<a href="/portfolio/Cloud_et_DevOps" class="project-btn">Voir le projet</a>
+    			</div>
 
-      <div class="project-stack">
-        <span>AWS</span>
-        <span>Docker</span>
-        <span>Grafana</span>
-        <span>Prometheus</span>
-      </div>
+  			</div>
 
-      <a href="/portfolio/Cloud_et_DevOps" class="project-btn">Voir le projet</a>
-    </div>
+			<!-- CONTENU PROJET 3 -->
+			<div id="project3" class="project-content">
 
-  </div>
+				<div class="project-image">
+					<img src="images/project-ai.jpg" alt="Projet IA">
+				</div>
 
-  <!-- CONTENU PROJET 3 -->
-  <div id="project3" class="project-content">
+   				 <div class="project-info">
+					<h2>Automatisation & Intelligence Artificielle</h2>
 
-    <div class="project-image">
-      <img src="images/project-ai.jpg" alt="Projet IA">
-    </div>
+					<p>
+						Développement d’une solution d’automatisation permettant
+						d’optimiser certaines tâches métiers grâce à l’IA.
+					</p>
 
-    <div class="project-info">
-      <h2>Automatisation & Intelligence Artificielle</h2>
+					<div class="project-stack">
+						<span>Python</span>
+						<span>IA</span>
+						<span>Automation</span>
+						<span>API</span>
+					</div>
 
-      <p>
-        Développement d’une solution d’automatisation permettant
-        d’optimiser certaines tâches métiers grâce à l’IA.
-      </p>
-
-      <div class="project-stack">
-        <span>Python</span>
-        <span>IA</span>
-        <span>Automation</span>
-        <span>API</span>
-      </div>
-
-      <a href="/portfolio/Data_IA" class="project-btn">Voir le projet</a>
-    </div>
-
-  </div>
-
-</section>
+      				<a href="/portfolio/Data_IA" class="project-btn">Voir le projet</a>
+    			</div>
+  			</div>
+		</div>
+    </section>
+</div>
 
 
 <script>
