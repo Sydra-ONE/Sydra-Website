@@ -7,37 +7,17 @@
 {% endblock %}
 
 {% block content %}
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">Portfolio · Monitoring Cloud</span>
+        <h1>Création d'une infrastructure Cloud de monitoring</h1>
+		<p>
+			Découvrez un système complet de surveillance 
+			en temps réel d'un serveur informatique dans le cloud afin d’anticiper les problèmes avant qu’ils ne surviennent.
+		</p>
+    </div>
+</section>
 
-<div class="portfolio-page">
-	<section class="portfolio-hero">
-    	<div class="container">
-			<div class="project-content active">
-				<div class="project-image">
-				<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}"
-					alt="Dashboard Cloud Monitoring">
-				</div>
-    			<div class="project-info">
-					<h2>Comment nous avons créé une infrastructure Cloud de monitoring</h2>
-
-					<p>
-						Ce projet consiste à construire un système complet qui permet de surveiller
-						en temps réel un serveur informatique dans le cloud.
-						L’objectif est de voir à tout moment si un serveur fonctionne correctement,
-						et d’anticiper les problèmes avant qu’ils ne surviennent.
-					</p>
-
-					<div class="project-stack">
-						<span>AWS EC2</span>
-						<span>Docker</span>
-						<span>Grafana</span>
-						<span>Prometheus</span>
-					</div>
-
-      				<a href="#screenshots" class="project-btn">Voir le fonctionnement</a>
-
-     			</div>
-    		</div>
-	</section>
 
   <!-- OBJECTIFS -->
 	<section class="portfolio-section">
@@ -118,6 +98,9 @@
 					<img class="zoomable" 
 						src="{{ url_for('static', filename='pictures/monitoring_cloud/instance_EC2.png') }}"
 						alt="Instance EC2 AWS">
+					<div class="project-stack">
+						<span>AWS EC2</span>
+					</div>
 				</div>
 
         		<div class="project-info">
@@ -139,6 +122,9 @@
 					<img class="zoomable" 
 						src="{{ url_for('static', filename='pictures/monitoring_cloud/docker.png') }}"
 						alt="Docker containers">
+					<div class="project-stack">
+						<span>Docker</span>
+					</div>
 				</div>
 
 				<div class="project-info">
@@ -159,6 +145,9 @@
 					<img class="zoomable" 
 						src="{{ url_for('static', filename='pictures/monitoring_cloud/prometheus.png') }}"
 						alt="Prometheus monitoring">
+					<div class="project-stack">
+						<span>Prometheus</span>
+					</div>
 				</div>
 
         		<div class="project-info">
@@ -180,6 +169,9 @@
 					<img class="zoomable" 
 						src="{{ url_for('static', filename='pictures/monitoring_cloud/basic_CPU.png') }}"
 						alt="CPU monitoring Grafana">
+					<div class="project-stack">
+						<span>Grafana</span>
+					</div>
 				</div>
 
         		<div class="project-info">
