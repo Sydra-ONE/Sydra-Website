@@ -10,7 +10,7 @@
     --accent: #22d3ee;
     --accent-light: #67e8f9;
 
-    --dark-bg: #0f172a;
+    --dark-bg: #20376b;
     --surface: rgba(255,255,255,0.03);
     --surface-hover: rgba(255,255,255,0.05);
 
@@ -52,6 +52,15 @@ body {
     color: var(--text-primary);
     font-family: var(--font-family);
     overflow-x: hidden;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #0F2957 50%, var(--primary-light) 100%);
+    color: white;
+    padding: 7rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 /* =========================================================
@@ -163,6 +172,7 @@ body {
     border: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow-card);
+    margin-bottom: 5px;
 }
 
 .project-content.active {
