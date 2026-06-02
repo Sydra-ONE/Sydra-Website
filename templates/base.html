@@ -12,7 +12,18 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
+
+            <!-- LOGO -->
             <a href="/" class="logo-link"><img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.png') }}" alt="Logo Sydra ONE" class="logo"></a>
+            
+            <!-- BURGER MENU -->
+
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <ul class="nav-links">
                 <li class="nav-item">
                     <span class="nav-trigger">Services<span class="notch-container"><span class="notch-v"></span></span></span>
@@ -30,9 +41,8 @@
                         <li><a href="/why_us">Pourquoi nous choisir ?</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <span class="nav-trigger">Portfolio<span class="notch-container"><span class="notch-v"></span></span></span>
-                    <ul class="submenu"></ul>
+                <li class="nav-item nav-item-simple">
+                    <a href="/portfolio">Portfolio</a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-trigger">Tarifications<span class="notch-container"><span class="notch-v"></span></span></span>
@@ -57,5 +67,39 @@
             <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p>
         </div>
     </footer>
+
+<script>
+
+const zoomableImages = document.querySelectorAll('.zoomable');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+zoomableImages.forEach(img => {
+
+    img.addEventListener('click', () => {
+
+        lightboxImg.src = img.src;
+
+        lightbox.classList.add('active');
+    });
+
+});
+
+lightbox.addEventListener('click', () => {
+
+    lightbox.classList.remove('active');
+
+});
+
+document.addEventListener('keydown', (e) => {
+
+    if(e.key === 'Escape'){
+        lightbox.classList.remove('active');
+    }
+
+});
+
+</script>    
+
 </body>
 </html>

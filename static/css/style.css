@@ -132,6 +132,7 @@ main {
 }
 
 
+
 /* 1. Ligne + V centre (style "notch") */
 .notch-container {
     --notch-gap: 10px;
@@ -770,6 +771,289 @@ footer {
     border-top: 1px solid rgba(0, 217, 255, 0.1);
     font-size: 0.9rem;
 }
+
+/* Pricing Section */
+.pricing {
+    padding: 5rem 0;
+    background: var(--primary-white);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background: var(--surface);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 217, 255, 0.15);
+    transform: translateY(-6px);
+}
+
+.pricing-card-featured {
+    border-color: var(--accent);
+    background: rgba(34, 211, 238, 0.05);
+    transform: scale(1.05);
+}
+
+.pricing-card-featured:hover {
+    transform: scale(1.05) translateY(-6px);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pack-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-card h3 {
+    color: var(--accent);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.pricing-card h4 {
+    color: var(--primary-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.pricing-features {
+    flex: 1;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.pricing-features h5 {
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pricing-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-features li {
+    color: var(--medium-text);
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-info {
+    background: rgba(34, 211, 238, 0.05);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--medium-text);
+    font-size: 0.9rem;
+}
+
+.info-row:last-child {
+    border-top: 1px solid rgba(0, 217, 255, 0.1);
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+.info-value {
+    color: var(--medium-text);
+}
+
+.pricing-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    color: var(--medium-text);
+    font-weight: 500;
+}
+
+.price-main {
+    font-size: 2.2rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.period {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.pricing-card .btn {
+    width: 100%;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 5rem 0;
+    background: var(--primary-white);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pricing-header h2 {
+    color: var(--primary-light);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-header p {
+    color: var(--medium-text);
+    font-size: 1.1rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pricing-card {
+    background: var(--surface);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 217, 255, 0.15);
+    transform: translateY(-6px);
+}
+
+.pricing-card-featured {
+    border-color: var(--accent);
+    background: rgba(34, 211, 238, 0.05);
+    transform: scale(1.05);
+}
+
+.pricing-card-featured:hover {
+    transform: scale(1.05) translateY(-6px);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.pricing-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.price {
+    font-size: 2.2rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.period {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.pricing-features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.pricing-features li {
+    color: var(--medium-text);
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card .btn {
+    width: 100%;
+}
 .eyebrow {
     display: flex;
     align-items: center;
@@ -785,6 +1069,143 @@ footer {
     max-width: 1200px;
     padding: 0 20px;
 }
+
+/* Services TJM Section */
+.services-tjm {
+    padding: 5rem 0;
+    background: var(--dark-bg);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    color: var(--accent);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: var(--medium-text);
+    font-size: 1.1rem;
+}
+
+.tjm-category {
+    margin-bottom: 3rem;
+}
+
+.tjm-category-header {
+    margin-bottom: 2rem;
+}
+
+.tjm-category-header h3 {
+    color: var(--primary-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.tjm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tjm-card {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tjm-card:hover {
+    border-color: var(--accent);
+    background: rgba(0, 217, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 217, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.tjm-card-highlighted {
+    border-color: var(--accent);
+    background: rgba(0, 217, 255, 0.1);
+}
+
+.tjm-card-wide {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tjm-level {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tjm-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.price-value {
+    font-size: 2rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.price-unit {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.tjm-desc {
+    color: var(--medium-text);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.tjm-factors {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.tjm-factors li {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tjm-factors li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
