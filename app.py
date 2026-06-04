@@ -1,7 +1,27 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from flask_mail import Mail, Message
+from dotenv import load_dotenv
 
+load_dotenv()  
 app = Flask(__name__)
+
+# Configuration Flask-Mail
+def str_to_bool(s):
+    if isinstance(s, bool):
+        return s
+    return str(s).lower() in ['true', '1', 't', 'y', 'yes']
+
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.ionos.fr')
+app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
+app.config['MAIL_USE_TLS'] = str_to_bool(os.environ.get('MAIL_USE_TLS', True))
+app.config['MAIL_USE_SSL'] = str_to_bool(os.environ.get('MAIL_USE_SSL', False))
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER', app.config['MAIL_USERNAME'])
+
+
+mail = Mail(app)
 
 @app.route('/')
 def index():
@@ -62,6 +82,40 @@ def portfolio_IA():
 def contact():
     """Page contact"""
     return render_template('contact.html')
+
+@app.route('/contact', methods=['POST'])
+def send_contact_email():
+    """Envoie le formulaire de contact par email"""
+    try:
+        nom = request.form.get('nom')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        
+        # Validation
+        if not all([nom, email, message]):
+            return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
+        
+        # Email à envoyer
+        msg = Message(
+            subject=f"Nouveau message de contact de {nom}",
+            recipients=['contact@sydra-one.com'],
+            body=f"""
+Nouveau message de contact via sydra-one.com :
+
+Nom: {nom}
+Email: {email}
+
+Message:
+{message}
+            """,
+            reply_to=email
+        )
+        
+        mail.send(msg)
+        return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
+        
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

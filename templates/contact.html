@@ -13,12 +13,45 @@
 
 <section class="contact-form-section">
     <div class="container">
-        <form class="contact-form">
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <textarea placeholder="Décrivez votre projet, votre besoin ..." rows="5" required></textarea>
+        <form class="contact-form" id="contactForm">
+            <input type="text" name="nom" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Décrivez votre projet, votre besoin ..." rows="5" required></textarea>
             <button type="submit" class="btn">Envoyer</button>
+            <div id="formMessage" style="margin-top: 15px; display: none;"></div>
         </form>
     </div>
 </section>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const messageDiv = document.getElementById('formMessage');
+        
+        try {
+            const response = await fetch('/contact', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            messageDiv.style.display = 'block';
+            
+            if (data.success) {
+                messageDiv.style.color = 'green';
+                messageDiv.textContent = '✓ Email envoyé avec succès! Nous vous répondrons sous 24h.';
+                e.target.reset();
+            } else {
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = '✗ Erreur: ' + data.error;
+            }
+        } catch (error) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.color = 'red';
+            messageDiv.textContent = '✗ Erreur lors de l\'envoi du formulaire.';
+        }
+    });
+</script>
 {% endblock %}
