@@ -86,59 +86,36 @@ def contact():
 
 @app.route('/contact', methods=['POST'])
 def send_contact_email():
-    """Envoie le formulaire de contact par email"""
-    try :
+    try:
         nom = request.form.get('nom')
         email = request.form.get('email')
         message = request.form.get('message')
-        
-        # Validation
+
         if not all([nom, email, message]):
             return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
-        smtp_server = os.environ.get('MAIL_SERVER')
-        smtp_port = int(os.environ.get('MAIL_PORT', 587))
-        smtp_username = os.environ.get('MAIL_USERNAME')   # ada950001@smtp-brevo.com  (login technique)
-        smtp_password = os.environ.get('MAIL_PASSWORD')
-        sender_email = os.environ.get('MAIL_DEFAULT_SENDER')  # contact@sydra-one.com (From visible)
-        recipient = 'contact@sydra-one.com'
 
-        # Construction du message
-        msg = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = recipient
-        msg['reply-to'] = email
-        msg['Subject'] = f"Nouveau message de contact de {nom}"
-        
-        body = f"""
-Nouveau message de contact via sydra-one.com :
+        url = "https://api.brevo.com/v3/smtp/email"
+        headers = {
+            "api-key": os.environ.get('BREVO_API_KEY'),
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "sender": {"name": "Sydra", "email": "contact@sydra-one.com"},
+            "to": [{"email": "contact@sydra-one.com"}],
+            "replyTo": {"email": email, "name": nom},
+            "subject": f"Nouveau message de contact de {nom}",
+            "textContent": f"Nom: {nom}\nEmail: {email}\n\nMessage:\n{message}"
+        }
 
-Nom: {nom}
-Email: {email}
+        import requests
+        response = requests.post(url, json=payload, headers=headers)
+        response.raise_for_status()
 
-Message:
-{message}
-            """
-        msg.attach(MIMEText(body, 'plain'))
-        
-        try:
-            sock = socket.create_connection(("smtp-relay.brevo.com", 587), timeout=5)
-            sock.close()
-            print("DEBUG: Port 587 ACCESSIBLE")
-        except Exception as e:
-            print(f"DEBUG: Port 587 BLOQUÉ - {e}")
-        # Utilisation de SMTP pour le port 587 (STARTTLS)
-        with smtplib.SMTP(smtp_server, smtp_port, timeout=10) as server:
-            server.ehlo()
-            server.starttls()  # Upgrade vers une connexion sécurisée
-            server.ehlo()
-            server.login(smtp_username, smtp_password)
-            server.send_message(msg)
         return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
-        
+
     except Exception as e:
-        print(f"DEBUG ERREUR: {str(e)}") # Important pour voir l'erreur dans les logs Railway
+        print(f"DEBUG ERREUR: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
-    
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
