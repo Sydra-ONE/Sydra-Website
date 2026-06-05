@@ -19,16 +19,8 @@ def str_to_bool(s):
         return s
     return str(s).lower() in ['true', '1', 't', 'y', 'yes']
 
-app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.ionos.fr')
-app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
-app.config['MAIL_USE_TLS'] = str_to_bool(os.environ.get('MAIL_USE_TLS', True))
-app.config['MAIL_USE_SSL'] = str_to_bool(os.environ.get('MAIL_USE_SSL', False))
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER', app.config['MAIL_USERNAME'])
 
 
-mail = Mail(app)
 
 @app.route('/')
 def index():
@@ -121,7 +113,7 @@ Email: {email}
 
 Message:
 {message}
-            """,
+            """
         msg.attach(MIMEText(body, 'plain'))
         
         with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
