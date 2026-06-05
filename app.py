@@ -93,18 +93,18 @@ def send_contact_email():
         # Validation
         if not all([nom, email, message]):
             return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
-        
-        smtp_server = os.environ.get('MAIL_SERVER', 'smtp.ionos.fr')
-        # On définit 587 comme port par défaut au lieu de 465
+        smtp_server = os.environ.get('MAIL_SERVER')
         smtp_port = int(os.environ.get('MAIL_PORT', 587))
-        sender_email = os.environ.get('MAIL_USERNAME')
-        password = os.environ.get('MAIL_PASSWORD')
+        smtp_username = os.environ.get('MAIL_USERNAME')   # ada950001@smtp-brevo.com  (login technique)
+        smtp_password = os.environ.get('MAIL_PASSWORD')
+        sender_email = os.environ.get('MAIL_DEFAULT_SENDER')  # contact@sydra-one.com (From visible)
         recipient = 'contact@sydra-one.com'
 
         # Construction du message
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = recipient
+        msg['reply-to'] = email
         msg['Subject'] = f"Nouveau message de contact de {nom}"
         
         body = f"""
@@ -120,8 +120,10 @@ Message:
         
         # Utilisation de SMTP pour le port 587 (STARTTLS)
         with smtplib.SMTP(smtp_server, smtp_port, timeout=10) as server:
+            server.ehlo()
             server.starttls()  # Upgrade vers une connexion sécurisée
-            server.login(sender_email, password)
+            server.ehlo()
+            server.login(smtp_username, smtp_password)
             server.send_message(msg)
         return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
         
