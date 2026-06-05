@@ -1,6 +1,9 @@
 import os
 from flask import Flask, render_template, request, jsonify
-from flask_mail import Mail, Message
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 from dotenv import load_dotenv
 
 if os.path.exists('.env'):
@@ -99,11 +102,18 @@ def send_contact_email():
         if not all([nom, email, message]):
             return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
         
-        # Email à envoyer
-        msg = Message(
-            subject=f"Nouveau message de contact de {nom}",
-            recipients=['contact@sydra-one.com'],
-            body=f"""
+        smtp_server = os.environ.get('MAIL_SERVER', 'smtp.ionos.fr')
+        smtp_port = int(os.environ.get('MAIL_PORT', 465))
+        sender_email = os.environ.get('MAIL_USERNAME')
+        password = os.environ.get('MAIL_PASSWORD')
+        recipient = 'contact@sydra-one.com'
+        # Construction du message
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = recipient
+        msg['Subject'] = f"Nouveau message de contact de {nom}"
+        
+        body = f"""
 Nouveau message de contact via sydra-one.com :
 
 Nom: {nom}
@@ -112,15 +122,19 @@ Email: {email}
 Message:
 {message}
             """,
-            reply_to=email
-        )
+        msg.attach(MIMEText(body, 'plain'))
         
-        mail.send(msg)
+        with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+            server.login(sender_email, password)
+            server.send_message(msg)
+        
         return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
         
     except Exception as e:
+        print(f"DEBUG ERREUR: {str(e)}") # Important pour voir l'erreur dans les logs Railway
         return jsonify({'success': False, 'error': str(e)}), 500
-
+    
+    
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
