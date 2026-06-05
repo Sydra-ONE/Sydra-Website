@@ -85,7 +85,7 @@ def contact():
 @app.route('/contact', methods=['POST'])
 def send_contact_email():
     """Envoie le formulaire de contact par email"""
-    try:
+    try :
         nom = request.form.get('nom')
         email = request.form.get('email')
         message = request.form.get('message')
@@ -95,10 +95,12 @@ def send_contact_email():
             return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
         
         smtp_server = os.environ.get('MAIL_SERVER', 'smtp.ionos.fr')
-        smtp_port = int(os.environ.get('MAIL_PORT', 465))
+        # On définit 587 comme port par défaut au lieu de 465
+        smtp_port = int(os.environ.get('MAIL_PORT', 587))
         sender_email = os.environ.get('MAIL_USERNAME')
         password = os.environ.get('MAIL_PASSWORD')
         recipient = 'contact@sydra-one.com'
+
         # Construction du message
         msg = MIMEMultipart()
         msg['From'] = sender_email
@@ -116,10 +118,11 @@ Message:
             """
         msg.attach(MIMEText(body, 'plain'))
         
-        with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+        # Utilisation de SMTP pour le port 587 (STARTTLS)
+        with smtplib.SMTP(smtp_server, smtp_port, timeout=10) as server:
+            server.starttls()  # Upgrade vers une connexion sécurisée
             server.login(sender_email, password)
             server.send_message(msg)
-        
         return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
         
     except Exception as e:
@@ -130,3 +133,4 @@ Message:
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
+
