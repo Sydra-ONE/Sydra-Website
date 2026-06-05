@@ -3,8 +3,7 @@ from flask import Flask, render_template, request, jsonify
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-#snippet temporaire pour debug
-import socket
+import requests
 
 from dotenv import load_dotenv
 
@@ -107,7 +106,7 @@ def send_contact_email():
             "textContent": f"Nom: {nom}\nEmail: {email}\n\nMessage:\n{message}"
         }
 
-        import requests
+        
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status()
 
