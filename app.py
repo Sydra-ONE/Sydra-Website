@@ -3,7 +3,11 @@ from flask import Flask, render_template, request, jsonify
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 
-load_dotenv()  
+if os.path.exists('.env'):
+    load_dotenv() 
+    
+print(f"DEBUG: MAIL_SERVER={os.environ.get('MAIL_SERVER')}")
+
 app = Flask(__name__)
 
 # Configuration Flask-Mail
