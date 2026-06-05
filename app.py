@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, jsonify
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+#snippet temporaire pour debug
+import socket
 
 from dotenv import load_dotenv
 
@@ -118,6 +120,12 @@ Message:
             """
         msg.attach(MIMEText(body, 'plain'))
         
+        try:
+            sock = socket.create_connection(("smtp-relay.brevo.com", 587), timeout=5)
+            sock.close()
+            print("DEBUG: Port 587 ACCESSIBLE")
+        except Exception as e:
+            print(f"DEBUG: Port 587 BLOQUÉ - {e}")
         # Utilisation de SMTP pour le port 587 (STARTTLS)
         with smtplib.SMTP(smtp_server, smtp_port, timeout=10) as server:
             server.ehlo()
