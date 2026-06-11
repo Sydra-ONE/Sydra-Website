@@ -60,42 +60,227 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+            <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p><br>
+            <div class="footer-links">
+                <a href="/mentions-legales">
+                    Mentions légales 
+                </a>
+                •
+                <a href="/confidentialite">
+                     Politique de confidentialité 
+                </a>
+                •
+                <a href="/cookies">
+                     Cookies 
+                </a>
+                •
+                <a href="/cgv">
+                    Conditions Générales de Vente
+                </a>
+            </div>
         </div>
     </footer>
 
-<script>
+    <script>
+        const zoomableImages = document.querySelectorAll('.zoomable');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
-const zoomableImages = document.querySelectorAll('.zoomable');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
 
-zoomableImages.forEach(img => {
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
 
-    img.addEventListener('click', () => {
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape'){
+                lightbox.classList.remove('active');
+            }
+        });
 
-        lightboxImg.src = img.src;
+    </script>    
 
-        lightbox.classList.add('active');
-    });
+    <!-- COOKIE BANNER -->
 
-});
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>🍪 Gestion des cookies</h3>
+                <p>
+                    Nous utilisons des cookies afin d'améliorer votre expérience,
+                    analyser la fréquentation du site et optimiser nos services.
+                    Vous pouvez modifier vos préférences à tout moment.
+                </p>
+            </div>
 
-lightbox.addEventListener('click', () => {
+            <div class="cookie-actions">
+                <button id="cookie-settings" class="cookie-btn secondary">
+                    Personnaliser
+                </button>
+                <button id="cookie-refuse" class="cookie-btn secondary">
+                    Refuser
+                </button>
+                <button id="cookie-accept" class="cookie-btn primary">
+                    Accepter
+                </button>
+            </div>
+        </div>
+    </div>
 
-    lightbox.classList.remove('active');
+    <!-- COOKIE SETTINGS POPUP -->
+    <div id="cookie-modal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h2>Préférences cookies</h2>
+                <button id="close-cookie-modal">
+                    ✕
+                </button>
+            </div>
 
-});
+            <p class="cookie-description">
+                Nous utilisons différents types de cookies afin
+                d'assurer le fonctionnement du site et améliorer
+                votre expérience.
+            </p>
 
-document.addEventListener('keydown', (e) => {
+            <!-- Cookies nécessaires -->
+            <div class="cookie-option">
+                <div>
+                    <h3>Cookies nécessaires</h3>
+                    <p>
+                        Ces cookies sont indispensables au fonctionnement
+                        du site.
+                    </p>
+                </div>
 
-    if(e.key === 'Escape'){
-        lightbox.classList.remove('active');
-    }
+                <label class="switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
 
-});
+            <!-- Cookies statistiques -->
+            <div class="cookie-option">
+                <div>
+                    <h3>Cookies statistiques</h3>
+                    <p>
+                        Permettent d'analyser la fréquentation du site.
+                    </p>
+                </div>
 
-</script>    
+                <label class="switch">
+                    <input id="analytics-cookie" type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
 
+            <!-- Cookies marketing -->
+            <div class="cookie-option">
+                <div>
+                    <h3>Cookies marketing</h3>
+                    <p>
+                        Utilisés pour proposer des contenus adaptés.
+                    </p>
+                </div>
+
+                <label class="switch">
+                    <input id="marketing-cookie" type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <button id="save-cookie-settings"
+                    class="save-cookie-btn">
+                Enregistrer mes choix
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const cookieBanner = document.getElementById("cookie-banner");
+        const cookieModal = document.getElementById("cookie-modal");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const refuseBtn = document.getElementById("cookie-refuse");
+        const settingsBtn = document.getElementById("cookie-settings");
+        const closeModal = document.getElementById("close-cookie-modal");
+        const saveSettings = document.getElementById("save-cookie-settings");
+
+        // Première connexion
+        if(!localStorage.getItem("cookieChoice")){
+            cookieBanner.style.display="block";
+        }
+
+        // Accepter tous
+        acceptBtn.onclick = () => {
+            localStorage.setItem(
+                "cookieChoice",
+                JSON.stringify({
+                    necessary:true,
+                    analytics:true,
+                    marketing:true
+                })
+            );
+            cookieBanner.style.display="none";
+        };
+
+        // Refuser tous
+        refuseBtn.onclick = () => {
+            localStorage.setItem(
+                "cookieChoice",
+                JSON.stringify({
+                    necessary:true,
+                    analytics:false,
+                    marketing:false
+                })
+            );
+            cookieBanner.style.display="none";
+        };
+
+        // Ouvrir popup
+        settingsBtn.onclick = () => {
+            cookieModal.classList.add("active");
+        };
+
+        // Fermer popup
+        closeModal.onclick = () => {
+            cookieModal.classList.remove("active");
+        };
+
+        // Enregistrer préférences
+        saveSettings.onclick = () => {
+            const analytics =
+            document.getElementById(
+                "analytics-cookie"
+            ).checked;
+            const marketing =
+            document.getElementById(
+                "marketing-cookie"
+            ).checked;
+
+            localStorage.setItem(
+                "cookieChoice",
+                JSON.stringify({
+                    necessary:true,
+                    analytics:analytics,
+                    marketing:marketing
+                })
+            );
+
+            cookieModal.classList.remove("active");
+            cookieBanner.style.display="none";
+        };
+
+        // clic extérieur fermeture
+        cookieModal.onclick = (e)=>{
+            if(e.target === cookieModal){
+                cookieModal.classList.remove("active");
+            }
+        };
+    </script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Politique de confidentialité - SydraOne
+{% endblock %}
+
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">RGPD · Politique de confidentialité</span>
+        <h1>Politique de confidentialité</h1>
+    </div>
+</section>
+
+<section class="legal-page">
+    <div class="container">
+        <div class="legal-header">
+            <h1>Protection des données personnelles</h1>
+        </div>
+        <div class="legal-content">
+            <h2>1. Responsable du traitement</h2>
+            <p>
+                Le responsable du traitement des données personnelles est :
+            <br><br>
+            <strong>SydraOne</strong>
+            <br>
+                contact@sydraone.fr
+            </p>
+
+            <h2>2. Données collectées</h2>
+            <p>
+                Nous pouvons collecter :
+            </p>
+            <ul>
+            <li>Nom</li>
+            <li>Prénom</li>
+            <li>Email</li>
+            <li>Message envoyé via formulaire</li>
+            </ul>
+
+            <h2>3. Utilisation des données</h2>
+            <p>
+                Les données collectées permettent :
+            </p>
+
+            <ul>
+            <li>Répondre aux demandes de contact</li>
+            <li>Établir des devis</li>
+            <li>Assurer le suivi commercial</li>
+            <li>Améliorer nos services</li>
+            </ul>
+
+            <h2>4. Conservation des données</h2>
+            <p>
+                Les données sont conservées uniquement pendant
+                la durée nécessaire aux finalités prévues.
+            </p>
+
+            <h2>5. Vos droits RGPD</h2>
+            <p>
+                Vous disposez des droits suivants :
+            </p>
+
+            <ul>
+            <li>Droit d'accès</li>
+            <li>Droit de rectification</li>
+            <li>Droit de suppression</li>
+            <li>Droit d'opposition</li>
+            <li>Droit à la portabilité</li>
+            </ul>
+
+            <p>
+                Pour exercer vos droits :
+            <br>
+                contact@sydraone.fr
+            </p>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
