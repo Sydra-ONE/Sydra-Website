@@ -766,7 +766,7 @@ footer {
     background: rgba(1, 15, 35, 0.95);
     color: var(--medium-text);
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     margin-top: 0;
     border-top: 1px solid rgba(0, 217, 255, 0.1);
     font-size: 0.9rem;
@@ -1532,3 +1532,5 @@ input:checked + .slider:before{
         width:100%;
     }
 }
+
+
