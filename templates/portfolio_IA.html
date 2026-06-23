@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Sydra ONE - Prédiction de Trafic SDN via un modèle d'IA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio_ia.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">Portfolio · Intelligence Artificielle</span>
+        <h1>Prédiction de Trafic SDN via un modèle d'IA</h1>
+		<p>
+			Anticipation des congestions, optimisation des liens et améliorations de la qualité de service dans les réseaux SDN grâce à un modèle d'intelligence artificielle Deep Learning.
+            Une solution complète allant de la modélisation séquentielle (LSTM) à l'interface de supervision web temps réel.
+		</p>
+    </div>
+</section>
+
+
+  <!-- OBJECTIFS -->
+	<section class="web-hero">
+        <div class="container web-hero-grid">
+            <div class="web-hero-copy">
+                <h1>Prédiction de trafic SDN via l'Intelligence Artificielle.</h1>
+                <p>
+                    Anticipation des congestions, optimisation des liens et amélioration de la QoS grâce au Deep Learning.
+                    Une solution complète allant de la modélisation séquentielle (LSTM) à l'interface de supervision web temps réel.
+                </p>
+                <div class="hero-highlights">
+                    <div class="highlight">
+                        <span class="label">Modèle IA</span>
+                        <span class="value">Deep Learning (LSTM)</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="label">Stack Technique</span>
+                        <span class="value">Python, Django, Flask</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="label">Infrastructure</span>
+                        <span class="value">Pipeline CI/CD & MLOps</span>
+                    </div>
+                </div>
+            </div>
+            <div class="web-hero-card">
+                <div class="card-top">
+                    <span class="pill">Objectifs & Résultats</span>
+                    <h3>Rendre le réseau SDN proactif</h3>
+                    <p>
+                        Passer d'une infrastructure qui réagit aux pannes à une infrastructure qui les anticipe, 
+                        en prédisant l'état des matrices de trafic à t+1 pour redistribuer intelligemment les flux.
+                    </p>
+                </div>
+                <div class="gain-list">
+                    <div class="gain-item">
+                        <span class="gain-title">Optimisation</span>
+                        <span class="gain-desc">Prévention des congestions réseau</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Qualité de Service (QoS)</span>
+                        <span class="gain-desc">Baisse des pertes de paquets</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Sécurité</span>
+                        <span class="gain-desc">Détection précoce d'anomalies/DDoS</span>
+                    </div>
+                    <div class="gain-item">
+                        <span class="gain-title">Performance IA</span>
+                        <span class="gain-desc">Haute précision (MAE: 1.24, RMSE: 1.73)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- TECHNOLOGIES -->
+  	<section class="web-tabs">
+        <div class="container">
+            <div class="tabs">
+                <input type="radio" name="services-tabs" id="tab-platform" checked>
+                <input type="radio" name="services-tabs" id="tab-process">
+                <input type="radio" name="services-tabs" id="tab-commerce">
+                <div class="tab-controls">
+                    <label for="tab-platform">Modélisation & Données (IA)</label>
+                    <label for="tab-process">Architecture Web & API</label>
+                    <label for="tab-commerce">Pipeline CI/CD & MLOps</label>
+                </div>
+                <div class="tab-panels">
+                    <div class="tab-panel panel-platform">
+                        <div class="panel-header">
+                            <h2>Un modèle de Deep Learning pensé pour les séries temporelles</h2>
+                            <p> 
+                                Le trafic SDN évoluant de manière séquentielle, l'utilisation de modèles ML classiques a été écartée au profit 
+                                de réseaux récurrents. Nous avons construit une solution capable de comprendre l'évolution du réseau GÉANT dans le temps.
+                            </p>
+                        </div>
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <h3>Ce que nous avons mis en place</h3>
+                                <div class="card-grid">
+                                    <div class="info-card">
+                                        <h4>Traitement des données</h4>
+                                        <p>Nettoyage, normalisation (MinMaxScaler) et réduction de dimension (ACP) sur des matrices 23x23 issues du réseau GÉANT.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Fenêtres glissantes</h4>
+                                        <p>Structuration des séquences temporelles (t-4 à t-1) pour permettre au modèle de prédire la matrice à t+1.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Modèle LSTM</h4>
+                                        <p>Architecture avec 64 neurones, Dropout (0.3) pour éviter le surapprentissage, et optimiseur Adam pour la convergence.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Simulation réaliste</h4>
+                                        <p>Génération de perturbations (pics d'activité, pannes) pour entraîner le modèle sur des comportements extrêmes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-block">
+                                <h3>Expertise IA & Data Science</h3>
+                                <ul class="checklist">
+                                    <li>TensorFlow / Keras pour l'architecture Deep Learning</li>
+                                    <li>Comparatif des modèles (LSTM, BiLSTM, GRU, LightGBM)</li>
+                                    <li>Métriques d'évaluation de régression (RMSE, MAE)</li>
+                                    <li>Gestion fine des hyperparamètres (EarlyStopping, Learning Rate)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-row panel-row-center">
+                            <div class="panel-block panel-block-center">
+                                <h3>Méthode d'expérimentation IA</h3>
+                                <ol class="steps">
+                                    <li>Exploration et nettoyage du dataset GÉANT</li>
+                                    <li>Génération et formatage des séquences temporelles</li>
+                                    <li>Entraînement comparatif des modèles de réseaux récurrents</li>
+                                    <li>Sélection et optimisation du modèle LSTM (meilleur ratio performance/coût)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel panel-process">
+                        
+                        <div class="panel-header">
+                            <h2>
+                                Interface de supervision et APIs REST
+                            </h2>
+                            <p>
+                                Pour rendre notre intelligence artificielle exploitable par les équipes d'exploitation, nous avons opté pour une architecture microservices séparant clairement le moteur de prédiction de l'interface utilisateur.
+                            </p>
+                        </div>
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <h3>Le Dashboard Django</h3>
+                                <ul class="checklist">
+                                    <li>Visualisation du trafic moyen en temps réel (matrice 23x23 représentant le réseau)</li>
+                                    <li>Suivi temporel de la bande passante par chemin (Chart.js)</li>
+                                    <li>Détection des taux de pertes et liens inactifs</li>
+                                    <li>Historique complet des prédictions stockées sous SQLite</li>
+                                </ul>
+                            </div>
+                            <div class="panel-block accent-block">
+                                <h3>L'API Flask (Microservice IA)</h3>
+                                <ul class="checklist">
+                                    <li>Exposition du modèle LSTM via un endpoint sécurisé `/predict`</li>
+                                    <li>Dénormalisation automatique des résultats (inversion logarithmique)</li>
+                                    <li>Réponse formatée en JSON prête pour le plan de contrôle SDN</li>
+                                    <li>Haute disponibilité et isolation du processus de calcul ML</li>
+                                </ul>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="tab-panel panel-commerce">
+                        <div class="panel-header">
+                            <h2>Automatisation & Pipeline MLOps</h2>
+                            <p>Afin de garantir un cycle de vie du modèle robuste, nous avons conçu une infrastructure de déploiement et de réentraînement automatisée, prête pour des environnements de production complexes.</p>
+                        </div>
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <h3>Notre stratégie de déploiement</h3>
+                                <div class="card-grid">
+                                    <div class="info-card">
+                                        <h4>Orchestration Airflow</h4>
+                                        <p>Mise en place de DAGs pour automatiser la collecte, le prétraitement et la segmentation des nouvelles données réseau (toutes les 15 min).</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Tracking MLflow</h4>
+                                        <p>Versionnage systématique des datasets, logs des expérimentations et enregistrement automatique des modèles les plus performants.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Conteneurisation Docker</h4>
+                                        <p>Environnements isolés pour l'entraînement et l'exécution de l'API, facilitant un déploiement fluide sur n'importe quelle infrastructure.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h4>Shadow Deployment</h4>
+                                        <p>Déploiement fantôme du nouveau modèle en parallèle de l'ancien pour valider la cohérence des prédictions sans risque pour la production.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-block">
+                                <h3>Supervision Post-Déploiement</h3>
+                                <ul class="checklist">
+                                    <li>Surveillance de la latence de l'API Flask et du taux d'erreur</li>
+                                    <li>Détection des dérives de données (Data Drift) en production</li>
+                                    <li>Intégration d'outils de monitoring (Prometheus / Grafana)</li>
+                                    <li>Logs centralisés (stack ELK) pour le debugging rapide</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+{% endblock %}
