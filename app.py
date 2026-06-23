@@ -116,6 +116,23 @@ def send_contact_email():
         print(f"DEBUG ERREUR: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
     
+
+@app.route('/mentions-legales')
+def mentions_legales():
+    return render_template('mentions_legales.html')
+
+@app.route('/confidentialite')
+def confidentialite():
+    return render_template('confidentialite.html')
+
+@app.route('/cookies')
+def cookies():
+    return render_template('cookies.html')
+
+@app.route('/cgv')
+def cgv():
+    return render_template('cgv.html')
+    
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
