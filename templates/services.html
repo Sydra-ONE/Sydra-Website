@@ -5,22 +5,41 @@
 {% block content %}
 <section class="services">
     <div class="container">
-        <h1> Nos Services</h1>
-        <p class="intro">Découvrez l'ensemble de nos solutions</p>
-        
+        <h1>Nos Services</h1>
+        <p class="intro">
+            Découvrez l'ensemble de nos solutions
+        </p>
+
         <div class="services-grid">
-            <div class="service-card">
-                <h3>Développement Web</h3>
-                <p>Création de sites modernes et performants</p>
-            </div>
-            <div class="service-card">
-                <h3>Consulting IT</h3>
-                <p>Accompagnement et conseils techniques</p>
-            </div>
-            <div class="service-card">
-                <h3>Maintenance</h3>
-                <p>Support et suivi de vos applications</p>
-            </div>
+            <a href="/services/web" class="service-card-link">
+                <div class="service-card">
+                    <h3>Développement Web</h3>
+                    <p>Création de sites modernes et performants</p>
+                    <span class="service-arrow">
+                        →
+                    </span>
+                </div>
+            </a>
+
+            <a href="/services/Cloud_et_DevOps" class="service-card-link">
+                <div class="service-card">
+                    <h3>Cloud & DevOps</h3>
+                    <p>Accompagnement et conseils techniques</p>
+                    <span class="service-arrow">
+                        →
+                    </span>
+                </div>
+            </a>
+
+            <a href="/services/Data_IA" class="service-card-link">
+                <div class="service-card">
+                    <h3>Data & IA Engineering</h3>
+                    <p>Support et suivi de vos applications</p>
+                    <span class="service-arrow">
+                        →
+                    </span>
+                </div>
+            </a>
         </div>
     </div>
 </section>
