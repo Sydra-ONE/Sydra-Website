@@ -1619,5 +1619,58 @@ input:checked + .slider:before{
         width:100%;
     }
 }
+/* --- Ajouts pour une vraie compatibilité mobile --- */
+
+@media (max-width: 768px) {
+    /* 1. Empêcher le débordement horizontal */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* 2. Ajuster le conteneur */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* 3. Navbar : empiler les éléments si nécessaire */
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* 4. Hero : réduire le padding énorme */
+    .hero {
+        padding: 4rem 0;
+    }
+
+    /* 5. About : empiler les colonnes */
+    .about-row, .about-row-reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* 6. Fixer les images qui sortent de l'écran */
+    img, .market-img, .quote-img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Optimisation pour les très petits écrans (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 
