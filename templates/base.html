@@ -59,27 +59,57 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <p class="footer-copyright">&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+        <div class="container footer-container">
+
+            <div class="footer-column">
+                <img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.png') }}"
+                    alt="SydraOne"
+                    class="footer-logo">
+
+                <p class="footer-description">
+                    SydraOne accompagne les entreprises dans la création de sites web,
+                    l’hébergement, le Cloud & DevOps et l’automatisation digitale.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="/services/web">Développement Web</a>
+                <a href="/services/Cloud_et_DevOps">Cloud & DevOps</a>
+                <a href="/services/Data_IA">Data & IA</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Entreprise</h3>
+                <a href="/about">À propos</a>
+                <a href="/why_us">Pourquoi nous choisir ?</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/contact">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <a href="mailto:contact@sydraone.fr">contact@sydraone.fr</a>
+                <a href="https://www.linkedin.com/in/sydra-one/" target="_blank">LinkedIn</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+
             <div class="footer-links">
-                <a href="/mentions-legales">
-                    Mentions légales 
-                </a>
+                <a href="/mentions-legales">Mentions légales</a>
                 •
-                <a href="/confidentialite">
-                     Politique de confidentialité 
-                </a>
+                <a href="/confidentialite">Politique de confidentialité</a>
                 •
-                <a href="/cookies">
-                     Cookies 
-                </a>
+                <a href="/cookies">Cookies</a>
                 •
-                <a href="/cgv">
-                    Conditions Générales de Vente
-                </a>
+                <a href="/cgv">CGV</a>
             </div>
         </div>
     </footer>
+
 
     <script>
         const zoomableImages = document.querySelectorAll('.zoomable');
