@@ -702,7 +702,7 @@ section h2 {
 /* About Quote Section */
 .about-quote {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 0.7fr;
     gap: 3rem;
     align-items: center;
     margin: 4rem 0;
@@ -1668,6 +1668,48 @@ input:checked + .slider:before{
     img, .market-img, .quote-img {
         max-width: 100%;
         height: auto;
+    }
+    
+    .about-quote {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1.2rem;
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    .quote-content {
+        width: 100%;
+    }
+
+    .quote-text {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.8;
+        text-align: center;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
+    .quote-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .quote-img {
+        width: 220px;
+        max-width: 75%;
+        height: auto;
+        border-radius: 14px;
+    }
+
+    .author-header {
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.8rem;
     }
 }
 
