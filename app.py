@@ -38,12 +38,12 @@ def services_web():
     """Page service web"""
     return render_template('services_web.html')
 
-@app.route('/services/Cloud_et_DevOps')
+@app.route('/services/cloud-devops')
 def services_cloud():
     """Page service cloud et devops"""
     return render_template('services_cloud.html')
 
-@app.route('/services/Data_IA')
+@app.route('/services/data-ia')
 def services_IA():
     """Page service Data and IA engineering"""
     return render_template('services_IA.html')
@@ -53,7 +53,7 @@ def about():
     """Page À propos"""
     return render_template('about.html')
 
-@app.route('/why_us')
+@app.route('/why-us')
 def why_us():
     """Page Pourquoi nous choisir ?"""
     return render_template('pourquoi_nous.html')
@@ -68,12 +68,12 @@ def portfolio_web():
     """Page portfolio web"""
     return render_template('portfolio_web.html')
 
-@app.route('/portfolio/Cloud_et_DevOps')
+@app.route('/portfolio/cloud-monitoring')
 def portfolio_cloud():
     """Page portfolio cloud et devops"""
     return render_template('portfolio_cloud.html')
 
-@app.route('/portfolio/Data_IA')
+@app.route('/portfolio/data-ia')
 def portfolio_IA():
     """Page portfolio Data and IA engineering"""
     return render_template('portfolio_IA.html')

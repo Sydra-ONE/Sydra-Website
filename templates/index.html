@@ -1,33 +1,399 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - Accueil{% endblock %}
+{% block title %}
+Sydra One | Création de sites web, Cloud & DevOps
+{% endblock %}
+
+{% block meta_description %}
+Sydra One accompagne les entreprises dans la création de sites web professionnels, le Cloud, le DevOps et l'automatisation afin d'accélérer leur transformation numérique.
+{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <div class="container">
-        <h1>Bienvenue chez Sydra ONE</h1>
-        <p>Votre partenaire en services numériques</p>
-        <a href="/services" class="btn">Découvrir nos services</a>
+
+<!-- HERO -->
+<section class="hero hero-short">
+    <div class="container hero-short-grid">
+
+        <div class="hero-short-content">
+
+            <span class="hero-short-badge">
+                Agence Web • Cloud • DevOps
+            </span>
+
+            <h1>
+                Construisons ensemble
+                <span>votre avenir numérique.</span>
+            </h1>
+
+            <p>
+                Nous accompagnons les entreprises dans la création de sites web
+                professionnels, l’hébergement, le Cloud et l’automatisation avec
+                des solutions modernes, fiables et évolutives.
+            </p>
+
+            <div class="hero-short-actions">
+                <a href="/contact" class="btn hero-short-primary">
+                    Demander un devis
+                </a>
+
+                <a href="/portfolio" class="btn hero-short-secondary">
+                    Découvrir nos réalisations
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-short-visual">
+
+            <div class="hero-visual-card hero-visual-main">
+                <span class="visual-label">Sydra One</span>
+
+                <h2>
+                    Votre partenaire pour réussir votre transformation numérique.
+                </h2>
+
+                <p class="visual-description">
+                    Nous développons des solutions web, Cloud et 
+                    d'automatisation qui simplifient votre quotidien, améliorent
+                    votre productivité et accompagnent durablement la croissance
+                    de votre entreprise.
+                </p>
+
+                <div class="visual-tags">
+                    <span>Sites web professionnels</span>
+                    <span>Cloud & DevOps</span>
+                    <span>Automatisation</span>
+                    <span>Hébergement sécurisé</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
+
+<!-- MISSION -->
+<section class="home-section mission-section">
+    <div class="container">
+
+        <div class="home-section-header">
+            <span class="section-label">Notre mission</span>
+
+            <h2>
+                Rendre la technologie utile, claire et accessible.
+            </h2>
+
+            <p>
+                Notre objectif est de concevoir des solutions numériques
+                qui améliorent réellement le quotidien et la performance
+                de nos clients.
+            </p>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-content">
+                <p>
+                    Sydra One aide les entreprises à moderniser leur activité
+                    grâce à des outils simples, performants et adaptés à leurs besoins réels.
+                </p>
+
+                <p>
+                    Nous ne cherchons pas à ajouter de la complexité.
+                    Chaque solution doit permettre de gagner en visibilité,
+                    en efficacité, en sécurité ou en autonomie.
+                </p>
+            </div>
+
+            <div class="mission-values">
+                <div class="mission-value">
+                    <span>01</span>
+                    <div>
+                        <h3>Clarté</h3>
+                        <p>
+                            Des explications simples, des objectifs précis
+                            et des coûts transparents.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mission-value">
+                    <span>02</span>
+                    <div>
+                        <h3>Fiabilité</h3>
+                        <p>
+                            Des solutions sécurisées, testées et conçues pour durer.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mission-value">
+                    <span>03</span>
+                    <div>
+                        <h3>Proximité</h3>
+                        <p>
+                            Un accompagnement humain et une équipe disponible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FORCES -->
 <section class="features">
     <div class="container">
-        <h2 class="text-dark-bg">Nos forces</h2>
+
+        <div class="home-section-header centered">
+            <span class="section-label">Pourquoi Sydra One ?</span>
+
+            <h2 class="text-dark-bg">
+                Nos forces
+            </h2>
+
+            <p class="features-intro">
+                Une approche technique solide, mais toujours compréhensible
+                et orientée vers les résultats de votre entreprise.
+            </p>
+        </div>
+
         <div class="features-grid">
             <div class="feature">
+                <span class="feature-number">01</span>
+
                 <h3>Expertise</h3>
-                <p>Une équipe qualifiée et expérimentée</p>
+
+                <p>
+                    Une équipe qualifiée capable d’intervenir sur le web,
+                    le Cloud, le DevOps et l’automatisation.
+                </p>
             </div>
+
             <div class="feature">
+                <span class="feature-number">02</span>
+
                 <h3>Innovation</h3>
-                <p>Solutions modernes et adaptées</p>
+
+                <p>
+                    Des technologies modernes sélectionnées selon votre besoin,
+                    et non pour ajouter de la complexité.
+                </p>
             </div>
+
             <div class="feature">
+                <span class="feature-number">03</span>
+
                 <h3>Confiance</h3>
-                <p>Partenariat durable avec nos clients</p>
+
+                <p>
+                    Une relation durable fondée sur l’écoute, la transparence
+                    et la qualité du suivi.
+                </p>
             </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="home-section home-services-section">
+    <div class="container">
+
+        <div class="home-section-header centered">
+            <span class="section-label">Nos expertises</span>
+
+            <h2>
+                Trois domaines au service de votre transformation numérique.
+            </h2>
+
+            <p>
+                De la création de votre site jusqu’à l’hébergement,
+                la supervision et l’automatisation de vos outils.
+            </p>
+        </div>
+
+        <div class="home-services-grid">
+
+            <a href="/services/web" class="home-service-card">
+                <span class="home-service-number">01</span>
+
+                <h3>Développement Web</h3>
+
+                <p>
+                    Création de sites vitrines, plateformes web et solutions
+                    responsives, rapides et optimisées pour le référencement.
+                </p>
+
+                <span class="home-service-link">
+                    Découvrir le service →
+                </span>
+            </a>
+
+            <a href="/services/cloud-devops" class="home-service-card">
+                <span class="home-service-number">02</span>
+
+                <h3>Cloud & DevOps</h3>
+
+                <p>
+                    Hébergement, monitoring, automatisation des déploiements
+                    et sécurisation de vos infrastructures.
+                </p>
+
+                <span class="home-service-link">
+                    Découvrir le service →
+                </span>
+            </a>
+
+            <a href="/services/data-ia" class="home-service-card">
+                <span class="home-service-number">03</span>
+
+                <h3>Data & Intelligence Artificielle</h3>
+
+                <p>
+                    Automatisation de tâches, traitement des données
+                    et intégration de solutions intelligentes.
+                </p>
+
+                <span class="home-service-link">
+                    Découvrir le service →
+                </span>
+            </a>
+
         </div>
     </div>
 </section>
+
+<!-- MÉTHODE -->
+<section class="home-section process-section">
+    <div class="container">
+
+        <div class="home-section-header">
+            <span class="section-label">Notre méthode</span>
+
+            <h2>
+                Un accompagnement structuré, du premier échange jusqu’au suivi.
+            </h2>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-item">
+                <span>01</span>
+                <h3>Échange</h3>
+                <p>
+                    Comprendre votre activité, vos objectifs et vos priorités.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span>02</span>
+                <h3>Cadrage</h3>
+                <p>
+                    Définir une solution, un planning et un budget transparents.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span>03</span>
+                <h3>Conception</h3>
+                <p>
+                    Créer et valider l’expérience, le design et l’architecture.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span>04</span>
+                <h3>Déploiement</h3>
+                <p>
+                    Tester, sécuriser et mettre la solution en production.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span>05</span>
+                <h3>Suivi</h3>
+                <p>
+                    Maintenir, héberger et améliorer votre solution dans le temps.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="home-section portfolio-preview-section">
+    <div class="container portfolio-preview-grid">
+
+        <div class="portfolio-preview-content">
+            <span class="section-label">Nos réalisations</span>
+
+            <h2>
+                Découvrez nos projets web, Cloud et automatisation.
+            </h2>
+
+            <p>
+                Notre portfolio présente des projets concrets permettant
+                d’illustrer notre maîtrise technique et notre méthode de travail.
+            </p>
+
+            <a href="/portfolio" class="btn">
+                Voir le portfolio
+            </a>
+        </div>
+
+        <div class="portfolio-preview-card">
+            <span class="pill">Projet Cloud & DevOps</span>
+
+            <h3>
+                Monitoring d’un serveur AWS avec Grafana et Prometheus
+            </h3>
+
+            <p>
+                Mise en place d’une infrastructure conteneurisée permettant
+                de surveiller en temps réel les performances d’un serveur Linux.
+            </p>
+
+            <div class="project-stack">
+                <span>AWS EC2</span>
+                <span>Docker</span>
+                <span>Grafana</span>
+                <span>Prometheus</span>
+            </div>
+
+            <a href="/portfolio/cloud-monitoring" class="portfolio-preview-link">
+                Voir le projet →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="home-cta">
+    <div class="container home-cta-content">
+
+        <div>
+            <span class="section-label">Parlons de votre projet</span>
+
+            <h2>
+                Vous avez un besoin numérique ou une idée à concrétiser ?
+            </h2>
+
+            <p>
+                Échangeons sur vos objectifs afin d’identifier ensemble
+                la solution la plus adaptée à votre entreprise.
+            </p>
+        </div>
+
+        <a href="/contact" class="btn home-cta-btn">
+            Nous contacter
+        </a>
+
+    </div>
+</section>
+
 {% endblock %}

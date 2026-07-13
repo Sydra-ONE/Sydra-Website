@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - Cloud & DevOps{% endblock %}
+{% block title %}
+Monitoring Cloud & DevOps sur AWS | Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Découvrez notre projet de monitoring Cloud sur AWS EC2 avec Docker, Prometheus, Grafana et Node Exporter.
+{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
@@ -96,8 +102,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/monitoring_cloud/instance_EC2.png') }}"
-						alt="Instance EC2 AWS">
+						src="{{ url_for('static', filename='pictures/monitoring_cloud/instance_EC2.webp') }}"
+						alt="Instance EC2 AWS"
+						loading="lazy">
 					<div class="project-stack">
 						<span>AWS EC2</span>
 					</div>
@@ -120,8 +127,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/monitoring_cloud/docker.png') }}"
-						alt="Docker containers">
+						src="{{ url_for('static', filename='pictures/monitoring_cloud/docker.webp') }}"
+						alt="Docker containers"
+						loading="lazy">
 					<div class="project-stack">
 						<span>Docker</span>
 					</div>
@@ -143,8 +151,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/monitoring_cloud/prometheus.png') }}"
-						alt="Prometheus monitoring">
+						src="{{ url_for('static', filename='pictures/monitoring_cloud/prometheus.webp') }}"
+						alt="Prometheus monitoring"
+						loading="lazy">
 					<div class="project-stack">
 						<span>Prometheus</span>
 					</div>
@@ -167,8 +176,9 @@
 
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/monitoring_cloud/basic_CPU.png') }}"
-						alt="CPU monitoring Grafana">
+						src="{{ url_for('static', filename='pictures/monitoring_cloud/basic_CPU.webp') }}"
+						alt="CPU monitoring Grafana"
+						loading="lazy">
 					<div class="project-stack">
 						<span>Grafana</span>
 					</div>
@@ -191,8 +201,9 @@
 
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}"
-						alt="Dashboard global">
+						src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.webp') }}"
+						alt="Dashboard global"
+						loading="lazy">
 				</div>
 
         		<div class="project-info">
