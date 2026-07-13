@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - Developpement Web{% endblock %}
+{% block title %}
+Projet Web | Développement d'un site professionnel | Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Présentation d'un projet de création d'un site web moderne, responsive et optimisé pour les performances et le référencement naturel.
+{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
@@ -95,8 +101,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/dev_web/image_post_nichewatcher.png') }}"
-						alt="Instance EC2 AWS">
+						src="{{ url_for('static', filename='pictures/dev_web/image_post_nichewatcher.webp') }}"
+						alt="Accueil nichewatcher"
+						loading="lazy" >
 					<div class="project-stack">
 						<span>BeautifulSoup/html/css</span>
 					</div>
@@ -118,8 +125,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/dev_web/postgres_nichewatcher.png') }}"
-						alt="Docker containers">
+						src="{{ url_for('static', filename='pictures/dev_web/postgres_nichewatcher.webp') }}"
+						alt="Base de données nichewatcher"
+						loading="lazy" >
 					<div class="project-stack">
 						<span>PostgreSQL/SQLAlchemy</span>
 					</div>
@@ -142,8 +150,9 @@
 			<div class="project-content active">
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/dev_web/login_nichewatcher.png') }}"
-						alt="Prometheus monitoring">
+						src="{{ url_for('static', filename='pictures/dev_web/login_nichewatcher.webp') }}"
+						alt="login nichewatcher"
+						loading="lazy">
 					<div class="project-stack">
 						<span>JWT</span>
 					</div>
@@ -165,8 +174,9 @@
 
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/dev_web/scheduler_nichewatcher.png') }}"
-						alt="CPU monitoring Grafana">
+						src="{{ url_for('static', filename='pictures/dev_web/scheduler_nichewatcher.webp') }}"
+						alt="scheduler nichewatcher"
+						loading="lazy">
 					<div class="project-stack">
 						<span>Cron</span>
 					</div>
@@ -188,8 +198,9 @@
 
 				<div class="project-image">
 					<img class="zoomable" 
-						src="{{ url_for('static', filename='pictures/dev_web/emailing_hebdo_nichewatcher.png') }}"
-						alt="Dashboard global">
+						src="{{ url_for('static', filename='pictures/dev_web/emailing_hebdo_nichewatcher.webp') }}"
+						alt="newsletter"
+						loading="lazy">
 				</div>
 
         		<div class="project-info">

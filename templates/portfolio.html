@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - Plateformes Web{% endblock %}
+{% block title %}
+Portfolio | Réalisations Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Découvrez les projets réalisés par Sydra One en développement web, Cloud, DevOps et intelligence artificielle.
+{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
@@ -39,7 +45,7 @@
 			<div id="project1" class="project-content active">
 
 				<div class="project-image">
-					<img src="{{ url_for('static', filename='pictures/dev_web/site_nichewatcher.png') }}" alt="Projet Web">
+					<img src="{{ url_for('static', filename='pictures/dev_web/site_nichewatcher.webp') }}" alt="Projet Web" loading="lazy">
 				</div>
 
 				<div class="project-info">
@@ -66,7 +72,7 @@
 			<div id="project2" class="project-content">
 
 				<div class="project-image">
-					<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}" alt="Projet DevOps">
+					<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.webp') }}" alt="Projet DevOps" loading="lazy">
 				</div>
 
     			<div class="project-info">
@@ -84,7 +90,7 @@
 						<span>Prometheus</span>
 					</div>
 
-      				<a href="/portfolio/Cloud_et_DevOps" class="project-btn">Voir le projet</a>
+      				<a href="/portfolio/cloud-monitoring" class="project-btn">Voir le projet</a>
     			</div>
 
   			</div>
@@ -93,7 +99,7 @@
 			<div id="project3" class="project-content">
 
 				<div class="project-image">
-					<img src="{{ url_for('static', filename='pictures/ia/dashboard_ia_sdn.png') }}" alt="Projet IA">
+					<img src="{{ url_for('static', filename='pictures/ia/dashboard_ia_sdn.webp') }}" alt="Projet IA" loading="lazy">
 				</div>
 
    				 <div class="project-info">
@@ -112,7 +118,7 @@
 					    <span>Apache Airflow, MLflow</span>
 					</div>
 
-      				<a href="/portfolio/Data_IA" class="project-btn">Voir le projet</a>
+      				<a href="/portfolio/data-ia" class="project-btn">Voir le projet</a>
     			</div>
   			</div>
 		</div>
