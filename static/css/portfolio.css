@@ -191,7 +191,7 @@ body {
 .project-image img {
     width: 100%;
     height: auto;
-    max-height: 450px;
+    max-height: 550px;
     object-fit: cover;
     border-radius: var(--radius-lg);
     transition: var(--transition);

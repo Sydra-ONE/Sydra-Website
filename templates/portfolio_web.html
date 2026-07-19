@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}
+Projet Web | Développement d'un site professionnel | Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Présentation d'un projet de création d'un site web moderne, responsive et optimisé pour les performances et le référencement naturel.
+{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">Portfolio · Developpement Web</span>
+        <h1>Création d'un outil web pour de la veille technologique, nommé Niche Watcher</h1>
+		<p>
+			Découvrez une application web de veille technologique hebdomadaire destinée à un public de professionnels
+            souhaitant se tenir informés des dernières tendances et innovations dans le domaine de l'informatique.
+		</p>
+    </div>
+</section>
+
+
+  <!-- OBJECTIFS -->
+	<section class="portfolio-section">
+    	<div class="container">
+      		<div class="section-header">
+				<h1>Comprendre l’objectif du projet</h1>
+				<p>Pourquoi Niche Watcher a été créé</p>
+			</div>
+
+      	<div class="project-content active">
+        	<div class="project-info">
+
+				<h2>À quoi sert ce projet ?</h2>
+				<p>
+					Niche watcher est un agrégateur de contenu pensé pour centraliser la veille des développeurs et professionnels de l’informatique.
+                    L'idée est simple : éviter de perdre du temps à consulter plusieurs sources séparément et recevoir à la place un résumé clair, automatisé et utile. 
+				</p>
+				<p>
+					Le projet récupère des contenus depuis plusieurs sources techniques, les organise,
+                    puis les affiche sur une interface web simple et intuitive sur le site hebdomadairement. De plus, il recoit une newsletter par email pour informer les utilisateurs des nouvelles publications, s'il le souhaite.
+                </p>
+                <div class="project-stack">
+					<span>Veille automatisée</span>
+					<span>Centralisation des sources</span>
+					<span>Gain de temps</span>
+				</div>
+        	</div>
+      	</div>
+  	</section>
+
+  <!-- TECHNOLOGIES -->
+  	<section class="portfolio-section">
+		<div class="container">
+			<div class="section-header">
+				<h1>Les statistiques techniques du projet</h1>
+			</div>
+
+			<div class="project-content active">
+				<div class="project-info">
+					<h2>Les points techniques clés</h2>
+					<p>
+						Le projet repose sur une base technique compacte mais complète :
+					</p>
+					<p>
+						- Backend FastAPI pour exposer les endpoints, gérer l’authentification et servir les pages web.<br>
+						- PostgreSQL comme base de données principale pour stocker les utilisateurs et les posts<br>
+						- Scheduler Python exécuté de façon planifiée pour automatiser la collecte et l'envoie<br>
+						- Sources RSS + Reddit pour agréger du contenu provenant de plusieurs flux dev<br>
+                        - Emailing pour envoyer la newsletter hebdomadaire aux utilisateurs inscrits
+					</p>
+
+					<div class="project-stack">
+						<span>API moderne</span>
+						<span>Application mobile</span>
+						<span>Base de données relationelle</span>
+						<span>Automatisation</span>
+					</div>
+        		</div>
+      		</div>
+    	</div>
+  	</section>
+
+  <!-- SCREENSHOTS -->
+	<section id="screenshots" class="portfolio-section">
+
+    	<div class="container">
+      		<div class="section-header">
+				<h1>Le fonctionnement en images</h1>
+				<p>
+				Voici comment Niche Watcher transforme plusieurs sources en une veille claire et centralisée.
+				</p>
+			</div>
+
+			<!-- 1. INITIALISATION EC2 -->
+			<div class="project-content active">
+				<div class="project-image">
+					<img class="zoomable" 
+						src="{{ url_for('static', filename='pictures/dev_web/image_post_nichewatcher.webp') }}"
+						alt="Accueil nichewatcher"
+						loading="lazy" >
+					<div class="project-stack">
+						<span>BeautifulSoup/html/css</span>
+					</div>
+				</div>
+
+        		<div class="project-info">
+					<h2>1. Connexion des sources de contenu</h2>
+					<p>
+						Le système récupère les articles depuis des flux RSS techniques. On a css-tricks.com, hackernews.com et dev.to. 
+                        Pour chaque, on récupère les 5 articles les mieux notés de la semaine et on effectue un top 15 global. De plus, les trois posts les mieux notés pour chaque flux sont affichés en tant que "A la Une" 
+					</p>
+					<p>
+						Cette étape permet d’agréger automatiquement plusieurs points de veille sans intervention manuelle.
+					</p>
+				</div>
+      		</div>
+
+			<!-- 2. DOCKER -->
+			<div class="project-content active">
+				<div class="project-image">
+					<img class="zoomable" 
+						src="{{ url_for('static', filename='pictures/dev_web/postgres_nichewatcher.webp') }}"
+						alt="Base de données nichewatcher"
+						loading="lazy" >
+					<div class="project-stack">
+						<span>PostgreSQL/SQLAlchemy</span>
+					</div>
+				</div>
+
+				<div class="project-info">
+					<h2>2. Stockage et organisation des données</h2>
+					<p>
+                        Les contenus collectés sont enregistrés dans PostgreSQL avec les informations
+                        utiles pour le tri, l'affichage et le suivi.
+					</p>
+					<p>
+                        La base contient aussi les données utilisateurs, comme l'adresse email, le token de connexion
+                        et l'état d'inscription à la newsletter.
+                    </p>
+				</div>
+      		</div>
+
+			<!-- 3. PROMETHEUS -->
+			<div class="project-content active">
+				<div class="project-image">
+					<img class="zoomable" 
+						src="{{ url_for('static', filename='pictures/dev_web/login_nichewatcher.webp') }}"
+						alt="login nichewatcher"
+						loading="lazy">
+					<div class="project-stack">
+						<span>JWT</span>
+					</div>
+				</div>
+
+        		<div class="project-info">
+					<h2>3. Authentification des utilisateurs</h2>
+					<p>
+						Le projet propose un espace connecté avec inscrition, connexion et gestion du profil utilisateur.
+					</p>
+					<p>
+                        Cela permet de personnaliser l'accès aux contenus et de gérer les préférences de diffusion de la newsletter.
+                    </p>
+        		</div>
+      		</div>
+
+			<!-- 4. DASHBOARD CPU -->
+			<div class="project-content active">
+
+				<div class="project-image">
+					<img class="zoomable" 
+						src="{{ url_for('static', filename='pictures/dev_web/scheduler_nichewatcher.webp') }}"
+						alt="scheduler nichewatcher"
+						loading="lazy">
+					<div class="project-stack">
+						<span>Cron</span>
+					</div>
+				</div>
+
+        		<div class="project-info">
+					<h2>4. Automatisation hebdomadaire</h2>
+					<p>
+						Un scheduler Python est exécuté chaque semaine pour collecter les contenus, les organiser et envoyer la newsletter aux utilisateurs inscrits.
+					</p>
+					<p>
+                        Le but est de garder un système vivant sans dépendre d'une action manuelle quotidienne.
+                    </p>
+        		</div>
+     		</div>
+
+			<!-- 5. DASHBOARD FINAL -->
+			<div class="project-content active">
+
+				<div class="project-image">
+					<img class="zoomable" 
+						src="{{ url_for('static', filename='pictures/dev_web/emailing_hebdo_nichewatcher.webp') }}"
+						alt="newsletter"
+						loading="lazy">
+				</div>
+
+        		<div class="project-info">
+					<h2>5. Diffusion de la newsletter</h2>
+					<p>
+						Les utilisateurs inscrits recoivent une synthèse des contenus sélectionnés directement dans leur boîte mail. 
+                        Ils peuvent se désinscrire à tout moment via le bouton situé en plein milieu de la nav bar
+                    </p>
+					<p>
+                        Le projet ne se limite donc pas à afficher de l'information : il la transforme en expérience utile et récurrente  
+                    </p>
+        		</div>
+      		</div>
+
+    	</div>
+	</section>
+
+	<!-- RESULTATS -->
+	<section class="portfolio-section">
+    	<div class="container">
+			<div class="section-header">
+				<h1>Ce que ce projet permet de réaliser</h1>
+			</div>
+
+      		<div class="project-content active">
+        		<div class="project-info">
+					<h2>Résultat final</h2>
+					<p>
+						Niche Watcher démontre la mise en place d'un produit complet de veille technique :
+                        collecte automatisée, stockage, authentification, diffusion de newsletter et interface web 
+					</p>
+					<p>
+						Compétences mises en avant<br>
+						- Architecture backend avec API.<br>
+                        - Gestion des utilisateurs et des permissions.<br>
+                        - Manipulation de bases de données relationnelles.<br>
+                        - Automatisation de tâches planifiées.<br>
+                        - Intégration de sources externes.<br>
+                        - Conception d’une interface mobile claire et exploitable.
+					</p>
+        		</div>
+
+      		</div>
+    	</div>
+  	</section>
+</div>
+
+<div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+{% endblock %}

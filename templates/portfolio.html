@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - Plateformes Web{% endblock %}
+{% block title %}
+Portfolio | Réalisations Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Découvrez les projets réalisés par Sydra One en développement web, Cloud, DevOps et intelligence artificielle.
+{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
@@ -39,33 +45,34 @@
 			<div id="project1" class="project-content active">
 
 				<div class="project-image">
-					<img src="images/project-web.jpg" alt="Projet Web">
+					<img src="{{ url_for('static', filename='pictures/dev_web/site_nichewatcher.webp') }}" alt="Projet Web" loading="lazy">
 				</div>
 
 				<div class="project-info">
 					<h2>Création d’un Site Web Premium</h2>
 
 					<p>
-						Développement d’un site vitrine moderne et responsive destiné à une PME
-						souhaitant améliorer sa présence digitale et son image professionnelle.
+						Développement d’une application de veille technologique hebdomadaire destinée à un public de professionnels.
+						souhaitant se tenir informés des dernières tendances et innovations dans le domaine de l'informatique.
 					</p>
 
 					<div class="project-stack">
-						<span>React</span>
-						<span>Node.js</span>
-						<span>SEO</span>
-						<span>Responsive</span>
+						<span>BeautifulSoup/html/css</span>
+						<span>postgreSQL/SQLAlchemy</span>
+						<span>JWT</span>
+						<span>Cron</span>
 					</div>
 
-      				<a href="/portfolio_web" class="project-btn">Voir le projet</a>
+      				<a href="/portfolio/web" class="project-btn">Voir le projet</a>
     			</div>
+		
   			</div>
 
 			<!-- CONTENU PROJET 2 -->
 			<div id="project2" class="project-content">
 
 				<div class="project-image">
-					<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.png') }}" alt="Projet DevOps">
+					<img src="{{ url_for('static', filename='pictures/monitoring_cloud/quick_CPU.webp') }}" alt="Projet DevOps" loading="lazy">
 				</div>
 
     			<div class="project-info">
@@ -83,7 +90,7 @@
 						<span>Prometheus</span>
 					</div>
 
-      				<a href="/portfolio/Cloud_et_DevOps" class="project-btn">Voir le projet</a>
+      				<a href="/portfolio/cloud-monitoring" class="project-btn">Voir le projet</a>
     			</div>
 
   			</div>
@@ -92,25 +99,26 @@
 			<div id="project3" class="project-content">
 
 				<div class="project-image">
-					<img src="images/project-ai.jpg" alt="Projet IA">
+					<img src="{{ url_for('static', filename='pictures/ia/dashboard_ia_sdn.webp') }}" alt="Projet IA" loading="lazy">
 				</div>
 
    				 <div class="project-info">
 					<h2>Automatisation & Intelligence Artificielle</h2>
 
 					<p>
-						Développement d’une solution d’automatisation permettant
-						d’optimiser certaines tâches métiers grâce à l’IA.
+						Développement d’une solution de prédiction de trafic réseau dans un SDN via l’Intelligence Artificielle.
+						Anticipation des congestions, optimisation des liens et amélioration de la QoS
 					</p>
 
 					<div class="project-stack">
-						<span>Python</span>
-						<span>IA</span>
-						<span>Automation</span>
-						<span>API</span>
+						<span>Python, TensorFlow, Keras</span>
+						<span>IA : LSTM</span>
+						<span>Flask</span>
+						<span>Django, SQLite, HTML/CSS/JS</span>
+					    <span>Apache Airflow, MLflow</span>
 					</div>
 
-      				<a href="/portfolio/Data_IA" class="project-btn">Voir le projet</a>
+      				<a href="/portfolio/data-ia" class="project-btn">Voir le projet</a>
     			</div>
   			</div>
 		</div>

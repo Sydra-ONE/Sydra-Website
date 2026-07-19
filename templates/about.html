@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Sydra ONE - À propos{% endblock %}
+{% block title %}
+À propos | Découvrez Sydra One
+{% endblock %}
+
+{% block meta_description %}
+Découvrez l'histoire, les valeurs et la vision de Sydra One, agence spécialisée dans le développement web, le Cloud, le DevOps et l'automatisation.
+{% endblock %}
 
 {% block content %}
 <section class="hero">
@@ -21,7 +27,7 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p1.jpeg') }}" alt="Photo p1" class="market-img">
+                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p1.webp') }}" alt="Photo p1" class="market-img" loading="lazy">
             </div>
         </div>
 
@@ -43,13 +49,13 @@
                 </div>
             </div>
             <div class="quote-image">
-                <img src="{{ url_for('static', filename='pictures/pp/pp_desvoy.jpg') }}" alt="Photo Dimitri DESVOY" class="quote-img">
+                <img src="{{ url_for('static', filename='pictures/pp/pp_desvoy.webp') }}" alt="Photo Dimitri DESVOY" class="quote-img" loading="lazy">
             </div>
         </div>
 
         <div class="about-row">
             <div class="about-image">
-                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p2.jpeg') }}" alt="Photo p2" class="market-img">
+                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p2.webp') }}" alt="Photo p2" class="market-img">
             </div>
             <div class="about-content">
                 <div class="about-block">
@@ -67,7 +73,7 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p3.jpeg') }}" alt="Photo p3" class="market-img">
+                <img src="{{ url_for('static', filename='pictures/image_about/image_about_p3.webp') }}" alt="Photo p3" class="market-img" loading="lazy">
             </div>
         </div>
 
@@ -89,7 +95,7 @@
                 </div>
             </div>
             <div class="quote-image">
-                <img src="{{ url_for('static', filename='pictures/pp/pp_chafi.jpg') }}" alt="Photo Samir CHAFI" class="quote-img">
+                <img src="{{ url_for('static', filename='pictures/pp/pp_chafi.webp') }}" alt="Photo Samir CHAFI" class="quote-img" loading="lazy">
             </div>
         </div>
     </div>

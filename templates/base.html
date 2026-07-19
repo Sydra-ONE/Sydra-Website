@@ -2,35 +2,159 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Sydra One | Création de sites web, Cloud & automatisation
+        {% endblock %}
+    </title>
+
+    <meta name="description"
+          content="{% block meta_description %}SydraOne accompagne les entreprises dans la création de sites web, l’hébergement, le Cloud, le DevOps et l’automatisation digitale.{% endblock %}">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="SydraOne">
+
+    <link rel="canonical"
+          href="{{ request.base_url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="SydraOne">
+
+    <meta property="og:title"
+          content="{% block og_title %}SydraOne | Solutions web, Cloud & automatisation{% endblock %}">
+
+    <meta property="og:description"
+          content="{% block og_description %}Création de sites web professionnels, hébergement, Cloud, DevOps et automatisation pour les entreprises.{% endblock %}">
+
+    <meta property="og:url"
+          content="{{ request.base_url }}">
+
+    <meta property="og:image"
+          content="{{ url_for(
+              'static',
+              filename='pictures/logo/logo_crop_sydra.webp',
+              _external=True
+          ) }}">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="{% block twitter_title %}SydraOne | Solutions digitales pour entreprises{% endblock %}">
+
+    <meta name="twitter:description"
+          content="{% block twitter_description %}Création web, hébergement, Cloud, DevOps et automatisation digitale.{% endblock %}">
+
+    <meta name="twitter:image"
+          content="{{ url_for(
+              'static',
+              filename='pictures/logo/logo_crop_sydra.webp',
+              _external=True
+          ) }}">
+
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
     {% block extra_head %}{% endblock %}
-    <link rel="icon" type="image/png" href={{ url_for('static', filename='pictures/logo/logo_crop_sydra.png') }}>
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for(
+              'static',
+              filename='pictures/logo/logo_crop_sydra.webp'
+          ) }}">
+
+    <!-- Données structurées -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://sydra-one.com/#organization",
+
+        "name": "Sydra ONE",
+        "legalName": "SYDRA ONE",
+
+        "url": "https://sydra-one.com/",
+        "logo": "{{ url_for(
+            'static',
+            filename='pictures/logo/logo_crop_sydra.webp',
+            _external=True
+        ) }}",
+
+        "description": "Sydra ONE accompagne les entreprises dans la création de sites web professionnels, l'hébergement, le Cloud, le DevOps, l'automatisation et les solutions numériques.",
+
+        "foundingDate": "2026-06-24",
+
+        "identifier": [
+            {
+            "@type": "PropertyValue",
+            "propertyID": "SIREN",
+            "value": "106770381"
+            },
+            {
+            "@type": "PropertyValue",
+            "propertyID": "SIRET",
+            "value": "10677038100015"
+            }
+        ],
+
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "47 rue Vivienne",
+            "postalCode": "75002",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+        },
+
+        "email": "contact@sydra-one.com",
+
+        "sameAs": [
+            "https://www.linkedin.com/company/sydraone/"
+            "https://github.com/Sydra-ONE"
+        ],
+
+        "knowsAbout": [
+            "Création de sites web",
+            "Développement web",
+            "Hébergement web",
+            "Cloud computing",
+            "DevOps",
+            "Docker",
+            "Automatisation",
+            "Intelligence artificielle",
+            "Data engineering"
+        ]
+        }
+    </script>
 </head>
+
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
 
             <!-- LOGO -->
-            <a href="/" class="logo-link"><img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.png') }}" alt="Logo Sydra ONE" class="logo"></a>
+            <a href="/" class="logo-link"><img src="{{ url_for('static', filename='pictures/logo/logo_txt_sydra.webp') }}" alt="Logo Sydra ONE" class="logo"></a>
             
-            <!-- BURGER MENU -->
-
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
 
             <ul class="nav-links">
                 <li class="nav-item">
                     <span class="nav-trigger">Services<span class="notch-container"><span class="notch-v"></span></span></span>
                     <ul class="submenu">
                         <li><a href="/services/web">Développement Web</a></li>
-                        <li><a href="/services/Cloud_et_DevOps">Cloud et DevOps</a></li>
-                        <li><a href="/services/Data_IA">Data and IA engineering</a></li>
+                        <li><a href="/services/cloud-devops">Cloud et DevOps</a></li>
+                        <li><a href="/services/data-ia">Data and IA engineering</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -38,7 +162,7 @@
                     <ul class="submenu">
                         <li><span class="submenu-label">Qui sommes nous ?</span></li>
                         <li><a href="/about">À propos</a></li>
-                        <li><a href="/why_us">Pourquoi nous choisir ?</a></li>
+                        <li><a href="/why-us">Pourquoi nous choisir ?</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-simple">
@@ -59,27 +183,58 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <p class="footer-copyright">&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+        <div class="container footer-container">
+
+            <div class="footer-column">
+                <img src="{{ url_for('static', filename='pictures/logo/slogan_blanc_footer.webp') }}"
+                    alt="SydraOne"
+                    class="footer-logo"
+                    loading="lazy">
+
+                <p class="footer-description">
+                    SydraOne accompagne les entreprises dans la création de sites web,
+                    l’hébergement, le Cloud & DevOps et l’automatisation digitale.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="/services/web">Développement Web</a>
+                <a href="/services/cloud-devops">Cloud & DevOps</a>
+                <a href="/services/data-ia">Data & IA</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Entreprise</h3>
+                <a href="/about">À propos</a>
+                <a href="/why-us">Pourquoi nous choisir ?</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/contact">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <a href="mailto:contact@sydraone.fr">contact@sydraone.fr</a>
+                <a href="https://www.linkedin.com/in/sydra-one/" target="_blank">LinkedIn</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sydra ONE. Tous droits réservés.</p>
+
             <div class="footer-links">
-                <a href="/mentions-legales">
-                    Mentions légales 
-                </a>
+                <a href="/mentions-legales">Mentions légales</a>
                 •
-                <a href="/confidentialite">
-                     Politique de confidentialité 
-                </a>
+                <a href="/confidentialite">Politique de confidentialité</a>
                 •
-                <a href="/cookies">
-                     Cookies 
-                </a>
+                <a href="/cookies">Cookies</a>
                 •
-                <a href="/cgv">
-                    Conditions Générales de Vente
-                </a>
+                <a href="/cgv">CGV</a>
             </div>
         </div>
     </footer>
+
 
     <script>
         const zoomableImages = document.querySelectorAll('.zoomable');
