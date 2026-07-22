@@ -784,40 +784,90 @@
     color: var(--home-cyan-light);
 }
 
+
 /* =========================================================
-   CTA FINAL
+   INSIGHT CARD
 ========================================================= */
 
+.insight-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--home-border);
+    border-radius: 16px;
+    background: rgba(34, 211, 238, 0.04);
+}
+
+.insight-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--home-cyan);
+    font-size: 2rem;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.insight-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--home-white);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.insight-card p {
+    margin-bottom: 1rem;
+    color: var(--home-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.insight-link {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    margin-top: 1rem;
+    color: var(--home-cyan);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    /* Ajout du trait complet autour */
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 999px;
+    transition: var(--home-transition);
+}
+
+.insight-link:hover {
+    color: var(--home-cyan-light);
+    border-color: var(--home-cyan);
+    background: rgba(34, 211, 238, 0.08);
+    padding-left: 1.5rem; /* Petit effet de mouvement */
+}
+/* =========================================================
+   CTA FINAL
+   CTA FINAL
 .home-cta {
     padding: 5rem 0;
     background:
         radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.12), transparent 30%),
         linear-gradient(135deg, var(--home-blue), #19458d);
-}
-
-.home-cta-content {
-    display: flex;
-    justify-content: space-between;
+.insight-card {
+    padding: 5rem 0;
+    padding: 1.5rem;
+    border: 1px solid var(--home-border);
+    border-radius: 16px;
     align-items: center;
     gap: 3rem;
+.insight-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--home-cyan);
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
-
-.home-cta-content > div {
-    max-width: 740px;
-}
-
-.home-cta .section-label {
-    color: #dffaff;
-}
-
-.home-cta p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.home-cta-btn {
-    flex-shrink: 0;
-    color: var(--home-bg);
     background: var(--home-white);
+.insight-link:hover {
+    max-width: 740px;
 }
 
 .home-cta-btn:hover {
@@ -825,9 +875,9 @@
     box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
 }
 
-/* =========================================================
+.home-cta .section-label {
    RESPONSIVE
-========================================================= */
+    color: #dffaff;
 
 @media (max-width: 1050px) {
     .hero-home-grid,
@@ -848,8 +898,42 @@
 
 @media (max-width: 700px) {
     .hero {
+    background: var(--home-white);
         padding: 5rem 0;
     }
+.home-cta-btn:hover {
+    .hero-home-actions,
+    color: var(--home-bg);
+        flex-direction: column;
+        align-items: stretch;
+    display: flex;
+}
+        width: 100%;
+        text-align: center;
+.home-cta-content > div {
+   RESPONSIVE
+@media (max-width: 1050px) {
+    .hero-home-grid,
+    .hero-home-highlights,
+    .features-grid,
+    .home-services-grid,
+    .process-grid {
+.home-cta .section-label {
+    color: #dffaff;
+}
+
+        padding: 4.5rem 0;
+        grid-template-columns: repeat(2, 1fr);
+    .home-services-grid {
+        padding: 1.6rem;
+    .process-grid {
+}
+    .hero {
+
+    .home-section-header {
+        margin-bottom: 2.5rem;
+    }
+}
 
     .hero-home-actions,
     .home-cta-content {
@@ -882,4 +966,12 @@
     .home-section-header {
         margin-bottom: 2.5rem;
     }
-}
+
+
+
+    .hero-home-card,
+
+
+
+    .home-section-header {
+        margin-bottom: 2.5rem;

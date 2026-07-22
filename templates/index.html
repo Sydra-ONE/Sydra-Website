@@ -68,10 +68,27 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
                     <span>Automatisation</span>
                     <span>Hébergement sécurisé</span>
                 </div>
+
+                
             </div>
         </div>
 
+        <!-- Bloc Actualité -->
+        <div class="insight-card" id="insight-container">
+            <span class="insight-label">Actualité & Insight</span>
+            <h3 id="insight-title">Titre de l'article</h3>
+            <p>
+                <span id="insight-description"> 
+                Récupération de l'article...
+                </span><span>...</span>
+            </p>
+            <h4>source : <span id="insight-source">...</span></h4>
+            
+            <a href="#" id="insight-link" class="insight-link">Lire l'article →</a>
+        </div>
+
     </div>
+    
 </section>
 
 
@@ -395,5 +412,29 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
 
     </div>
 </section>
+<!-- CONTENU CSS DYNAMIQUE DE LA PAGE -->
+ <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        const container = document.getElementById("insight-container");
+        const titleE1 = document.getElementById('insight-title');
+        const descE1 = document.getElementById('insight-description');
+        const sourceE1 = document.getElementById("insight-source");
+        const linkE1 = document.getElementById('insight-link');
+        fetch('https://nichewatcher.app/best-post')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data recu : ", data);
+                titleE1.textContent = data.title;
+                descE1.textContent = data.content;
+                linkE1.href = data.url;
+                sourceE1.textContent = data.source;
+                //Une fois les data recu, on affiche le bloc
+                container.style.display = 'block';
+            })
+            .catch(error => {
+                console.error("Erreur lors de la récupération de l'article", error);
+            });
+    });
+</script>
 
 {% endblock %}
