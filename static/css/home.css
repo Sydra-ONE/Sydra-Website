@@ -21,6 +21,12 @@
     --home-transition: 0.3s ease;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* =========================================================
    OUTILS GÉNÉRAUX
 ========================================================= */
@@ -74,79 +80,6 @@
     letter-spacing: 0.16rem;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    position: relative;
-    padding: 7rem 0;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 85% 20%, rgba(34, 211, 238, 0.18), transparent 28%),
-        radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.12), transparent 30%),
-        linear-gradient(135deg, var(--home-bg) 0%, #15356f 60%, var(--home-blue) 140%);
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    top: -180px;
-    right: -120px;
-    border-radius: 50%;
-    background: rgba(34, 211, 238, 0.12);
-    filter: blur(70px);
-    pointer-events: none;
-}
-
-
-
-.hero-home-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.btn-secondary {
-    color: var(--home-white);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.btn-secondary:hover {
-    color: var(--home-cyan-light);
-    border-color: var(--home-cyan);
-    background: rgba(34, 211, 238, 0.06);
-}
-
-
-.hero-highlight {
-    padding: 1.1rem;
-    border: 1px solid rgba(34, 211, 238, 0.14);
-    border-radius: 15px;
-    background: rgba(6, 18, 38, 0.48);
-    backdrop-filter: blur(10px);
-}
-
-.hero-highlight strong,
-.hero-highlight span {
-    display: block;
-}
-
-.hero-highlight strong {
-    margin-bottom: 0.35rem;
-    color: var(--home-cyan);
-}
-
-.hero-highlight span {
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 0.83rem;
-    font-weight: 500;
-    line-height: 1.5;
-}
 
 /* =========================================================
    HERO COURT — SYDRA ONE
@@ -166,9 +99,9 @@
         ),
         linear-gradient(
             135deg,
-            var(--dark-bg) 0%,
+            var(--home-bg) 0%,
             #143264 65%,
-            var(--primary-light) 150%
+            var(--home-blue) 150%
         );
 }
 
@@ -204,7 +137,7 @@
     padding: 0.45rem 0.85rem;
     border: 1px solid rgba(34, 211, 238, 0.24);
     border-radius: 999px;
-    color: var(--accent);
+    color: var(--home-cyan);
     background: rgba(34, 211, 238, 0.08);
     font-size: 0.76rem;
     font-weight: 700;
@@ -222,7 +155,7 @@
 
 .hero-short-content h1 span {
     display: block;
-    color: var(--accent);
+    color: var(--home-cyan);
 }
 
 .hero-short-content p {
@@ -242,11 +175,11 @@
 }
 
 .hero-short-primary {
-    color: var(--dark-bg);
+    color: var(--home-bg);
     background: linear-gradient(
         135deg,
-        var(--accent),
-        var(--primary-light)
+        var(--home-cyan),
+        var(--home-blue)
     );
     box-shadow: 0 12px 30px rgba(34, 211, 238, 0.22);
 }
@@ -257,15 +190,15 @@
 }
 
 .hero-short-secondary {
-    color: var(--light-text);
+    color: var(--home-text);
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.04);
 }
 
 .hero-short-secondary:hover {
     transform: translateY(-3px);
-    color: var(--accent);
-    border-color: var(--accent);
+    color: var(--home-cyan);
+    border-color: var(--home-cyan);
     background: rgba(34, 211, 238, 0.06);
 }
 
@@ -323,7 +256,7 @@
 .visual-label {
     display: block;
     margin-bottom: 0.8rem;
-    color: var(--accent);
+    color: var(--home-cyan);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -338,7 +271,7 @@
     line-height: 1.4;
 }
 
-.visual-description{
+.visual-description {
     margin: 1.8rem 0 2rem;
     color: rgba(255,255,255,0.72);
     font-size: 1rem;
@@ -346,43 +279,30 @@
     max-width: 420px;
 }
 
-.visual-tags{
+.visual-tags {
     display:flex;
     flex-wrap:wrap;
     gap:0.75rem;
 }
 
-.visual-tags span{
+.visual-tags span {
     padding:0.55rem 0.9rem;
     border-radius:999px;
     border:1px solid rgba(34,211,238,.18);
     background:rgba(34,211,238,.05);
-    color:var(--accent);
+    color:var(--home-cyan);
     font-size:.82rem;
     font-weight:600;
     transition:.3s;
 }
 
-.visual-tags span:hover{
+.visual-tags span:hover {
     transform:translateY(-2px);
-    border-color:var(--accent);
+    border-color:var(--home-cyan);
     background:rgba(34,211,238,.12);
     box-shadow:0 0 15px rgba(34,211,238,.2);
 }
 
-.visual-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-.visual-tags span {
-    padding: 0.45rem 0.75rem;
-    border: 1px solid rgba(34, 211, 238, 0.16);
-    border-radius: 999px;
-    color: var(--accent);
-    font-size: 0.75rem;
-}
 
 .hero-visual-small {
     position: absolute;
@@ -404,7 +324,7 @@
 }
 
 .hero-visual-small strong {
-    color: var(--accent);
+    color: var(--home-cyan);
     font-size: 0.88rem;
     line-height: 1.4;
 }
@@ -802,7 +722,7 @@
     margin-bottom: 0.5rem;
     color: var(--home-cyan);
     font-size: 2rem;
-    font-weight: 1000;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
 }
@@ -839,35 +759,55 @@
     color: var(--home-cyan-light);
     border-color: var(--home-cyan);
     background: rgba(34, 211, 238, 0.08);
-    padding-left: 1.5rem; /* Petit effet de mouvement */
+    transform: translateX(4px);
 }
 /* =========================================================
    CTA FINAL
-   CTA FINAL
+========================================================= */
+
 .home-cta {
     padding: 5rem 0;
     background:
-        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.12), transparent 30%),
-        linear-gradient(135deg, var(--home-blue), #19458d);
-.insight-card {
-    padding: 5rem 0;
-    padding: 1.5rem;
-    border: 1px solid var(--home-border);
-    border-radius: 16px;
-    align-items: center;
-    gap: 3rem;
-.insight-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--home-cyan);
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255, 255, 255, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--home-blue),
+            #19458d
+        );
 }
-    background: var(--home-white);
-.insight-link:hover {
+
+.home-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.home-cta-content > div {
     max-width: 740px;
+}
+
+.home-cta .section-label {
+    color: #dffaff;
+}
+
+.home-cta h2 {
+    margin-bottom: 1rem;
+    color: var(--home-white);
+}
+
+.home-cta p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.home-cta-btn {
+    flex-shrink: 0;
+    color: var(--home-bg);
+    background: var(--home-white);
 }
 
 .home-cta-btn:hover {
@@ -875,12 +815,64 @@
     box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
 }
 
-.home-cta .section-label {
-   RESPONSIVE
-    color: #dffaff;
+
+/* =========================================================
+   SÉCURITÉ RESPONSIVE GLOBALE
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.home-section,
+.mission-section,
+.features,
+.home-services-section,
+.process-section,
+.portfolio-preview-section,
+.home-cta {
+    width: 100%;
+    overflow: hidden;
+}
+
+.mission-grid,
+.mission-values,
+.features-grid,
+.home-services-grid,
+.process-grid,
+.portfolio-preview-grid {
+    width: 100%;
+    min-width: 0;
+}
+
+.mission-content,
+.mission-value,
+.feature,
+.home-service-card,
+.process-item,
+.portfolio-preview-content,
+.portfolio-preview-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* =========================================================
+   RESPONSIVE TABLETTE
+========================================================= */
 
 @media (max-width: 1050px) {
-    .hero-home-grid,
+    .hero-short-grid,
     .mission-grid,
     .portfolio-preview-grid {
         grid-template-columns: 1fr;
@@ -888,90 +880,141 @@
 
     .features-grid,
     .home-services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-}
 
-@media (max-width: 700px) {
-    .hero {
-    background: var(--home-white);
-        padding: 5rem 0;
-    }
-.home-cta-btn:hover {
-    .hero-home-actions,
-    color: var(--home-bg);
-        flex-direction: column;
-        align-items: stretch;
-    display: flex;
-}
-        width: 100%;
-        text-align: center;
-.home-cta-content > div {
-   RESPONSIVE
-@media (max-width: 1050px) {
-    .hero-home-grid,
-    .hero-home-highlights,
-    .features-grid,
-    .home-services-grid,
-    .process-grid {
-.home-cta .section-label {
-    color: #dffaff;
-}
-
-        padding: 4.5rem 0;
-        grid-template-columns: repeat(2, 1fr);
-    .home-services-grid {
-        padding: 1.6rem;
-    .process-grid {
-}
-    .hero {
-
-    .home-section-header {
-        margin-bottom: 2.5rem;
-    }
-}
-
-    .hero-home-actions,
     .home-cta-content {
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
     }
 
-    .hero-home-actions .btn,
+    .home-cta-btn {
+        width: auto;
+    }
+
+    .insight-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .container {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .home-section,
+    .mission-section,
+    .features,
+    .home-services-section,
+    .process-section,
+    .portfolio-preview-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .home-section-header {
+        width: 100%;
+        margin-bottom: 2.5rem;
+    }
+
+    .home-section-header h2,
+    .portfolio-preview-content h2,
+    .home-cta h2 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        overflow-wrap: break-word;
+    }
+
+    .mission-grid,
+    .features-grid,
+    .home-services-grid,
+    .process-grid,
+    .portfolio-preview-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+    }
+
+    .mission-value,
+    .feature,
+    .home-service-card,
+    .process-item,
+    .portfolio-preview-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .feature,
+    .home-service-card {
+        min-height: auto;
+    }
+
+    .mission-value {
+        padding: 1.2rem;
+    }
+
+    .feature,
+    .home-service-card,
+    .process-item {
+        padding: 1.5rem;
+    }
+
+    .portfolio-preview-card {
+        padding: 1.5rem;
+    }
+
+    .home-cta {
+        padding: 4rem 0;
+    }
+
+    .home-cta-content {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
     .home-cta-btn {
         width: 100%;
         text-align: center;
     }
 
-    .hero-home-highlights,
-    .features-grid,
-    .home-services-grid,
-    .process-grid {
-        grid-template-columns: 1fr;
+    .insight-card {
+        width: 100%;
+        padding: 1.25rem;
+    }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 480px) {
+    .container {
+        padding-right: 14px;
+        padding-left: 14px;
     }
 
-    .home-section {
-        padding: 4.5rem 0;
+    .mission-value {
+        flex-direction: column;
+        gap: 0.8rem;
     }
 
-    .hero-home-card,
+    .feature,
+    .home-service-card,
+    .process-item,
     .portfolio-preview-card {
-        padding: 1.6rem;
+        border-radius: 16px;
     }
-
-    .home-section-header {
-        margin-bottom: 2.5rem;
-    }
-
-
-
-    .hero-home-card,
-
-
-
-    .home-section-header {
-        margin-bottom: 2.5rem;
+}
