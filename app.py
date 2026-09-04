@@ -78,6 +78,10 @@ def portfolio_IA():
     """Page portfolio Data and IA engineering"""
     return render_template('portfolio_IA.html')
 
+@app.route('/facturation-electronique')
+def facturation_electronique():
+    """Landing Page dédiée à la facturation électronique (DGFIP)"""
+    return render_template('facturation_electronique.html')
 @app.route('/contact')
 def contact():
     """Page contact"""
