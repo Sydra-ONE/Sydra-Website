@@ -84,7 +84,81 @@
 /* =========================================================
    HERO COURT — SYDRA ONE
 ========================================================= */
+/* =========================================================
+   HERO SLIDER & CORRECTION OMBRE
+========================================================= */
+.hero-slider-wrapper {
+    position: relative;
+    max-width: 760px;
+    overflow: hidden;
+    padding-bottom: 40px; 
+    margin-bottom: -40px;
+    padding-right: 0; 
+}
 
+.hero-slider-track {
+    display: flex;
+    width: 200%; 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-slide {
+    width: 50%; 
+    flex-shrink: 0;
+    padding-right: 20px; /* Un petit espace pour aérer le texte */
+    clip-path: inset(-50px 0 -50px 0); 
+}
+
+/* Contrôles et Flèches */
+.hero-slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot:hover {
+    background: rgba(34, 211, 238, 0.5);
+}
+
+.slider-dot.active {
+    background: var(--home-cyan);
+    transform: scale(1.3);
+}
+
+/* Style des Flèches */
+.slider-arrow {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.slider-arrow:hover {
+    background: var(--home-cyan);
+    border-color: var(--home-cyan);
+    color: var(--home-bg);
+    transform: scale(1.1);
+}
 .hero-short {
     position: relative;
     min-height: 500px;

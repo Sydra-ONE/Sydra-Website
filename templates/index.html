@@ -18,33 +18,70 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
 <section class="hero hero-short">
     <div class="container hero-short-grid">
 
-        <div class="hero-short-content">
+        <!-- SLIDER CONTAINER -->
+        <div class="hero-slider-wrapper">
+            
+            <div class="hero-slider-track" id="hero-slider-track">
+                <!-- SLIDE 1 : Facturation Électronique -->
+                <div class="hero-slide">
+                    <div class="hero-short-content">
+                        <span class="hero-short-badge" style="border-color: #ef4444; color: #ef4444; background: rgba(239, 68, 68, 0.1);">
+                            🚨 Réforme DGFIP 2026
+                        </span>
+                        <h1>
+                            La facturation électronique,
+                            <span>sans l'usine à gaz.</span>
+                        </h1>
+                        <p>
+                            Éditez vos devis, envoyez vos factures et restez 100% en règle avec l'État. 
+                            Un outil ultra-simple pensé pour les artisans et TPE. Zéro complexité technique.
+                        </p>
+                        <div class="hero-short-actions">
+                            <a href="/facturation-electronique" class="btn hero-short-primary">Découvrir la solution</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SLIDE 2 : Agence Web (L'original) -->
+                <div class="hero-slide">
+                    <div class="hero-short-content">
+                        <span class="hero-short-badge">
+                            Agence Web • Cloud • DevOps
+                        </span>
+                        <h1>
+                            Construisons ensemble
+                            <span>votre avenir numérique.</span>
+                        </h1>
+                        <p>
+                            Nous accompagnons les entreprises dans la création de sites web
+                            professionnels, l’hébergement, le Cloud et l’automatisation avec
+                            des solutions modernes, fiables et évolutives.
+                        </p>
+                        <div class="hero-short-actions">
+                            <a href="/contact" class="btn hero-short-primary">Demander un devis</a>
+                            <a href="/portfolio" class="btn hero-short-secondary">Découvrir nos réalisations</a>
+                        </div>
+                    </div>
+                </div>
 
-            <span class="hero-short-badge">
-                Agence Web • Cloud • DevOps
-            </span>
+                
 
-            <h1>
-                Construisons ensemble
-                <span>votre avenir numérique.</span>
-            </h1>
-
-            <p>
-                Nous accompagnons les entreprises dans la création de sites web
-                professionnels, l’hébergement, le Cloud et l’automatisation avec
-                des solutions modernes, fiables et évolutives.
-            </p>
-
-            <div class="hero-short-actions">
-                <a href="/contact" class="btn hero-short-primary">
-                    Demander un devis
-                </a>
-
-                <a href="/portfolio" class="btn hero-short-secondary">
-                    Découvrir nos réalisations
-                </a>
             </div>
+
+            <!-- Contrôles du slider (Flèches + Points) -->
+            <div class="hero-slider-controls">
+                <!-- Flèche Gauche -->
+                <button class="slider-arrow" onclick="prevSlide()" aria-label="Précédent">&#10094;</button>
+                
+                <div class="slider-dot active" onclick="goToSlide(0)"></div>
+                <div class="slider-dot" onclick="goToSlide(1)"></div>
+                
+                <!-- Flèche Droite -->
+                <button class="slider-arrow" onclick="nextSlide()" aria-label="Suivant">&#10095;</button>
+            </div>
+
         </div>
+        <!-- FIN SLIDER CONTAINER -->
 
         <div class="hero-short-visual">
 
@@ -215,8 +252,8 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
 
     </div>
 </section>
-
-<!-- SERVICES -->
+<!--
+<!- SERVICES ->
 <section class="home-section home-services-section">
     <div class="container">
 
@@ -283,6 +320,7 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
         </div>
     </div>
 </section>
+-->
 
 <!-- MÉTHODE -->
 <section class="home-section process-section">
@@ -340,8 +378,8 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
 
     </div>
 </section>
-
-<!-- PORTFOLIO -->
+<!--
+<!- PORTFOLIO ->
 <section class="home-section portfolio-preview-section">
     <div class="container portfolio-preview-grid">
 
@@ -388,7 +426,7 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
 
     </div>
 </section>
-
+-->
 <!-- CTA FINAL -->
 <section class="home-cta">
     <div class="container home-cta-content">
@@ -435,6 +473,42 @@ Sydra One accompagne les entreprises dans la création de sites web professionne
                 console.error("Erreur lors de la récupération de l'article", error);
             });
     });
+</script>
+<script>
+    let currentSlide = 0;
+    const totalSlides = 2; // Le nombre total de tes slides
+    const slideTrack = document.getElementById('hero-slider-track');
+    const dots = document.querySelectorAll('.slider-dot');
+    let slideInterval;
+
+    function goToSlide(index) {
+        currentSlide = index;
+        slideTrack.style.transform = `translateX(-${currentSlide * 50}%)`;
+        
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentSlide].classList.add('active');
+        
+        resetInterval();
+    }
+
+    function nextSlide() {
+        // Passe au suivant, ou revient à 0 si on est à la fin
+        let next = (currentSlide + 1) % totalSlides;
+        goToSlide(next);
+    }
+
+    function prevSlide() {
+        // Passe au précédent, ou revient à la fin si on est à 0
+        let prev = (currentSlide - 1 + totalSlides) % totalSlides;
+        goToSlide(prev);
+    }
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 6000); 
+    }
+
+    resetInterval();
 </script>
 
 {% endblock %}
