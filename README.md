@@ -22,6 +22,16 @@ Site vitrine professionnel créé avec Flask et hébergé sur Railway.
 
 3. Accéder au site :
 
+### Variables d’environnement
+
+Le formulaire de contact nécessite les variables suivantes :
+
+- `BREVO_API_KEY` : clé API Brevo utilisée pour l’envoi des messages ;
+- `TURNSTILE_SITE_KEY` : clé publique Cloudflare Turnstile ;
+- `TURNSTILE_SECRET_KEY` : clé secrète Cloudflare Turnstile.
+
+La clé secrète doit uniquement être configurée côté serveur (par exemple dans les variables du projet Railway), jamais dans un template ou dans le code client.
+
 ## 📂 Organisation du projet
 
 ```
