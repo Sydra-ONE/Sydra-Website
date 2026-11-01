@@ -85,7 +85,10 @@ def facturation_electronique():
 @app.route('/contact')
 def contact():
     """Page contact"""
-    return render_template('contact.html')
+    return render_template(
+        'contact.html',
+        turnstile_site_key=os.environ.get('TURNSTILE_SITE_KEY', ''),
+    )
 
 @app.route('/contact', methods=['POST'])
 def send_contact_email():
@@ -93,13 +96,53 @@ def send_contact_email():
         nom = request.form.get('nom')
         email = request.form.get('email')
         message = request.form.get('message')
+        turnstile_token = request.form.get('cf-turnstile-response')
 
         if not all([nom, email, message]):
             return jsonify({'success': False, 'error': 'Tous les champs sont requis'}), 400
 
+        turnstile_secret = os.environ.get('TURNSTILE_SECRET_KEY')
+        if not turnstile_secret:
+            print("DEBUG ERREUR: TURNSTILE_SECRET_KEY n'est pas configurée")
+            return jsonify({
+                'success': False,
+                'error': 'Le service de vérification est temporairement indisponible',
+            }), 500
+
+        if not turnstile_token:
+            return jsonify({
+                'success': False,
+                'error': 'Veuillez valider le challenge de sécurité',
+            }), 400
+
+        verification_response = requests.post(
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+            data={
+                'secret': turnstile_secret,
+                'response': turnstile_token,
+                'remoteip': request.remote_addr,
+            },
+            timeout=10,
+        )
+        verification_response.raise_for_status()
+        verification = verification_response.json()
+        if not isinstance(verification, dict) or verification.get('success') is not True:
+            return jsonify({
+                'success': False,
+                'error': 'La vérification de sécurité a échoué',
+            }), 400
+
+        brevo_api_key = os.environ.get('BREVO_API_KEY')
+        if not brevo_api_key:
+            print("DEBUG ERREUR: BREVO_API_KEY n'est pas configurée")
+            return jsonify({
+                'success': False,
+                'error': 'Le service d’envoi est temporairement indisponible',
+            }), 500
+
         url = "https://api.brevo.com/v3/smtp/email"
         headers = {
-            "api-key": os.environ.get('BREVO_API_KEY'),
+            "api-key": brevo_api_key,
             "Content-Type": "application/json"
         }
         payload = {
@@ -111,14 +154,23 @@ def send_contact_email():
         }
 
         
-        response = requests.post(url, json=payload, headers=headers)
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
         response.raise_for_status()
 
         return jsonify({'success': True, 'message': 'Email envoyé avec succès!'}), 200
 
-    except Exception as e:
+    except requests.RequestException as e:
         print(f"DEBUG ERREUR: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({
+            'success': False,
+            'error': 'Une erreur réseau a empêché le traitement de votre demande',
+        }), 502
+    except (TypeError, ValueError) as e:
+        print(f"DEBUG ERREUR: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'La réponse du service de vérification est invalide',
+        }), 502
     
 
 @app.route('/mentions-legales')
@@ -140,4 +192,3 @@ def cgv():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
-
